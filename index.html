@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adedotun Ibrahim Adekunle — Full-Stack Developer, Lagos</title>
+<meta name="description" content="Full-stack developer in Lagos. I build production systems with real money moving through them — marketplaces, real-time apps, 3D diagnostics. Next.js, React, TypeScript, PostgreSQL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400;12..96,75..100,700;12..96,75..100,800&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#DCE0D8;
+  --paper-2:#EEF0EA;
+  --card:#F5F6F2;
+  --ink:#12160F;
+  --ink-2:#3A4238;
+  --graphite:#6E7768;
+  --rule:#B2B9AA;
+  --rule-2:#C7CDBF;
+
+  /* colour key — one per drawing */
+  --blue:#1B3CB0;      --blue-soft:#E3E7F7;
+  --clay:#A0491F;      --clay-soft:#F8E9E0;
+  --indigo:#4338CA;    --indigo-soft:#E9E7FB;
+  --teal:#0B5F68;      --teal-soft:#DDEFF1;
+  --green:#1A6B37;     --green-soft:#E1F0E7;
+
+  --accent:var(--blue);
+  --accent-soft:var(--blue-soft);
+
+  --ff-display:"Bricolage Grotesque",system-ui,sans-serif;
+  --ff-body:"Newsreader",Georgia,serif;
+  --ff-mono:"JetBrains Mono",ui-monospace,monospace;
+
+  --pad:clamp(20px,5vw,72px);
+  --maxw:1240px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(to right,rgba(18,22,15,.045) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(18,22,15,.045) 1px,transparent 1px);
+  background-size:26px 26px;
+  color:var(--ink);
+  font-family:var(--ff-body);
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+
+.mono{font-family:var(--ff-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--graphite);}
+h1,h2,h3,h4{font-family:var(--ff-display);font-weight:800;letter-spacing:-.02em;line-height:1.02;margin:0;}
+p{margin:0 0 .9em;}
+.lede{font-size:clamp(18px,2.1vw,22px);line-height:1.55;color:var(--ink-2);max-width:62ch;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+
+.skip{position:absolute;left:-9999px;}
+.skip:focus{left:12px;top:12px;z-index:99;background:var(--ink);color:var(--paper);padding:10px 16px;}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+/* ---------- sheet index ---------- */
+.index{position:sticky;top:0;z-index:40;background:rgba(220,224,216,.88);backdrop-filter:blur(9px);border-bottom:1px solid var(--rule);}
+.index__bar{height:3px;display:flex;}
+.index__bar i{flex:1;}
+.index__in{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);display:flex;align-items:center;justify-content:space-between;gap:18px;height:52px;}
+.index__mark{font-family:var(--ff-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;white-space:nowrap;}
+.index__mark span{color:var(--blue);}
+.index__links{display:flex;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;}
+.index__links::-webkit-scrollbar{display:none;}
+.index__links a{font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--graphite);padding:6px 12px;border-left:1px solid var(--rule-2);white-space:nowrap;transition:color .18s,background .18s;}
+.index__links li:last-child a{border-right:1px solid var(--rule-2);}
+.index__links a:hover{color:var(--ink);background:var(--paper-2);}
+.index__links a em{font-style:normal;color:var(--blue);margin-right:6px;}
+
+/* ---------- cover ---------- */
+.cover{padding:clamp(48px,9vw,108px) 0 clamp(34px,6vw,60px);}
+.cover__eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:clamp(22px,4vw,38px);}
+.cover__eyebrow::after{content:"";flex:1;height:1px;background:var(--rule);}
+.cover h1{font-size:clamp(38px,8.4vw,104px);line-height:.94;letter-spacing:-.035em;max-width:16ch;}
+.cover h1 .thin{font-weight:400;}
+.cover h1 .mark{color:var(--blue);position:relative;}
+.cover h1 .mark::after{content:"";position:absolute;left:0;right:0;bottom:.08em;height:3px;background:var(--blue);opacity:.28;}
+.cover__body{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.85fr);gap:clamp(28px,5vw,64px);align-items:end;margin-top:clamp(26px,4vw,44px);}
+
+.plate{border:1.5px solid var(--ink);background:var(--card);box-shadow:5px 5px 0 rgba(18,22,15,.1);}
+.plate__row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);}
+.plate__row:last-child{border-bottom:0;}
+.plate__cell{padding:9px 13px;border-right:1px solid var(--rule);}
+.plate__cell:last-child{border-right:0;}
+.plate__cell.full{grid-column:1 / -1;border-right:0;}
+.plate__k{font-family:var(--ff-mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--graphite);display:block;margin-bottom:2px;}
+.plate__v{font-family:var(--ff-mono);font-size:13px;font-weight:500;color:var(--ink);line-height:1.35;}
+.plate__v.blue{color:var(--blue);}
+.plate__row.tint{background:var(--blue-soft);}
+.livedot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--blue);margin-right:7px;vertical-align:middle;animation:pulse 2.4s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.25;}}
+
+/* ---------- now strip ---------- */
+.strip{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper-2);}
+.strip__in{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:repeat(3,1fr);}
+.strip__item{padding:22px 26px 22px 0;border-right:1px solid var(--rule-2);position:relative;}
+.strip__item::before{content:"";position:absolute;left:0;top:22px;width:3px;height:18px;background:var(--accent);}
+.strip__item{padding-left:14px;}
+.strip__item:not(:first-child){padding-left:26px;}
+.strip__item:not(:first-child)::before{left:12px;}
+.strip__item:last-child{border-right:0;padding-right:0;}
+.strip__item .mono{color:var(--accent);}
+.strip__item p{margin:6px 0 0;font-size:15.5px;line-height:1.5;color:var(--ink-2);}
+.s-clay{--accent:var(--clay);}
+.s-green{--accent:var(--green);}
+.s-blue{--accent:var(--blue);}
+
+/* ---------- section frame ---------- */
+.sheet{padding:clamp(56px,9vw,110px) 0;}
+.sheet__head{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(28px,4vw,48px);flex-wrap:wrap;}
+.sheet__no{font-family:var(--ff-mono);font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.1em;}
+.sheet__head h2{font-size:clamp(26px,4.4vw,48px);letter-spacing:-.03em;}
+.sheet__head .rule{flex:1;min-width:40px;height:1px;background:var(--rule);align-self:center;}
+
+/* ---------- cases ---------- */
+.cases{display:flex;flex-direction:column;gap:clamp(26px,4vw,44px);}
+.case{border:1.5px solid var(--ink);background:var(--card);box-shadow:5px 5px 0 rgba(18,22,15,.1);overflow:hidden;}
+.case__flag{height:6px;background:var(--accent);}
+.case__top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:start;padding:20px var(--pad) 18px;border-bottom:1px solid var(--rule);background:var(--accent-soft);}
+.case__id{display:flex;align-items:center;gap:10px;margin-bottom:9px;flex-wrap:wrap;}
+.case__id .tag{font-family:var(--ff-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--rule);padding:2px 7px;color:var(--graphite);background:var(--card);}
+.case__id .tag.key{border-color:var(--accent);color:var(--accent);font-weight:700;}
+.case__top h3{font-size:clamp(25px,3.6vw,40px);letter-spacing:-.03em;color:var(--accent);}
+.case__role{font-family:var(--ff-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);text-align:right;padding-top:6px;}
+.case__what{margin:8px 0 0;font-size:17px;color:var(--ink-2);max-width:56ch;}
+
+.case__body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);}
+.case__left{padding:clamp(22px,3vw,34px) var(--pad);border-right:1px solid var(--rule);
+  background:linear-gradient(to right,rgba(18,22,15,.032) 1px,transparent 1px) 0 0/22px 22px,
+             linear-gradient(to bottom,rgba(18,22,15,.032) 1px,transparent 1px) 0 0/22px 22px;}
+.case__right{padding:clamp(22px,3vw,34px) var(--pad);}
+
+/* exploded assembly */
+.assembly{margin:14px 0 6px;}
+.layer{display:grid;grid-template-columns:minmax(0,1fr) 34px auto;align-items:center;margin-top:-11px;transition:margin-top .5s cubic-bezier(.22,1,.36,1);}
+.layer:first-child{margin-top:0;}
+.layer__plate{transform:skewX(-24deg);background:var(--paper-2);border:1.2px solid var(--ink);border-left:4px solid var(--accent);padding:11px 20px;min-height:46px;display:flex;align-items:center;transition:background .3s;}
+.layer__plate span{transform:skewX(24deg);display:block;}
+.layer__name{font-family:var(--ff-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+.layer__tech{font-family:var(--ff-mono);font-size:11.5px;color:var(--ink-2);line-height:1.45;margin-top:2px;}
+.layer__lead{height:1px;background:var(--accent);opacity:0;transition:opacity .45s ease .1s;}
+.layer__ref{font-family:var(--ff-mono);font-size:9.5px;letter-spacing:.12em;color:var(--graphite);opacity:0;transition:opacity .45s ease .1s;white-space:nowrap;}
+.case:hover .layer,.case:focus-within .layer{margin-top:11px;}
+.case:hover .layer:first-child,.case:focus-within .layer:first-child{margin-top:0;}
+.case:hover .layer__lead,.case:hover .layer__ref,
+.case:focus-within .layer__lead,.case:focus-within .layer__ref{opacity:1;}
+.case:hover .layer__plate,.case:focus-within .layer__plate{background:var(--card);}
+.assembly__hint{margin-top:16px;font-family:var(--ff-mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--graphite);}
+
+.specs{display:flex;flex-wrap:wrap;margin:0 0 22px;border-top:1px solid var(--rule);border-left:1px solid var(--rule);}
+.specs div{flex:1 1 92px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:9px 12px;background:var(--accent-soft);}
+.specs dt{font-family:var(--ff-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--graphite);}
+.specs dd{margin:2px 0 0;font-family:var(--ff-display);font-size:19px;font-weight:700;letter-spacing:-.02em;color:var(--accent);}
+
+.built{list-style:none;margin:0 0 22px;padding:0;}
+.built li{position:relative;padding-left:22px;margin-bottom:10px;font-size:16px;line-height:1.55;color:var(--ink-2);}
+.built li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border:1.4px solid var(--accent);}
+
+.note{border-left:3px solid var(--accent);background:var(--accent-soft);padding:14px 16px;margin:0 0 20px;}
+.note h4{font-family:var(--ff-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:5px;}
+.note p{margin:0;font-size:15.5px;line-height:1.55;color:var(--ink-2);}
+
+.case__links{display:flex;gap:10px;flex-wrap:wrap;}
+.btn{font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;text-decoration:none;border:1.4px solid var(--ink);padding:9px 15px;background:transparent;transition:background .2s,color .2s;display:inline-block;}
+.btn:hover{background:var(--ink);color:var(--paper);}
+.btn--fill{border-color:var(--accent);background:var(--accent);color:#fff;}
+.btn--fill:hover{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+
+/* colour key per drawing */
+.k-clay{--accent:var(--clay);--accent-soft:var(--clay-soft);}
+.k-indigo{--accent:var(--indigo);--accent-soft:var(--indigo-soft);}
+.k-teal{--accent:var(--teal);--accent-soft:var(--teal-soft);}
+.k-green{--accent:var(--green);--accent-soft:var(--green-soft);}
+.k-blue{--accent:var(--blue);--accent-soft:var(--blue-soft);}
+
+/* ---------- bill of materials ---------- */
+.bom{border:1.5px solid var(--ink);background:var(--card);box-shadow:5px 5px 0 rgba(18,22,15,.1);}
+.bom__row{display:grid;grid-template-columns:190px minmax(0,1fr);border-bottom:1px solid var(--rule);}
+.bom__row:last-child{border-bottom:0;}
+.bom__k{padding:14px 18px;border-right:1px solid var(--rule);font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);}
+.bom__v{padding:14px 18px;font-family:var(--ff-mono);font-size:13px;line-height:1.7;color:var(--ink-2);}
+.bom__v b{color:var(--ink);font-weight:700;}
+.bom__note{margin-top:14px;font-size:15.5px;color:var(--graphite);max-width:70ch;}
+
+/* ---------- method ---------- */
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));border-top:1px solid var(--ink);border-left:1px solid var(--ink);}
+.method__item{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:24px 22px;background:var(--accent-soft);}
+.method__item h3{font-size:19px;margin:10px 0 8px;letter-spacing:-.02em;color:var(--accent);}
+.method__item p{margin:0;font-size:15.5px;color:var(--ink-2);line-height:1.55;}
+.method__n{font-family:var(--ff-mono);font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.1em;}
+
+/* ---------- record ---------- */
+.record{border:1.5px solid var(--ink);background:var(--card);box-shadow:5px 5px 0 rgba(18,22,15,.1);}
+.rrow{display:grid;grid-template-columns:132px minmax(0,1fr) 120px;border-bottom:1px solid var(--rule);align-items:baseline;}
+.rrow:last-child{border-bottom:0;}
+.rrow__k{padding:14px 16px;border-right:1px solid var(--rule);font-family:var(--ff-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+.rrow__m{padding:14px 18px;}
+.rrow__m strong{font-family:var(--ff-display);font-weight:700;font-size:17px;letter-spacing:-.01em;display:block;}
+.rrow__m span{font-size:15.5px;color:var(--ink-2);line-height:1.5;}
+.rrow__w{padding:14px 16px;border-left:1px solid var(--rule);font-family:var(--ff-mono);font-size:10.5px;color:var(--graphite);text-align:right;white-space:nowrap;}
+
+/* ---------- contact ---------- */
+.contact{border-top:1px solid var(--rule);background:var(--ink);color:var(--paper-2);}
+.contact__bar{height:6px;display:flex;}
+.contact__bar i{flex:1;}
+.contact .wrap{padding-top:clamp(52px,8vw,94px);padding-bottom:clamp(40px,6vw,70px);}
+.contact h2{font-size:clamp(30px,6vw,68px);letter-spacing:-.035em;max-width:16ch;color:var(--paper-2);}
+.contact p.lede{color:#B9C0B2;}
+.contact__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin-top:clamp(30px,4vw,48px);border-top:1px solid #333B2F;border-left:1px solid #333B2F;}
+.contact__cell{border-right:1px solid #333B2F;border-bottom:1px solid #333B2F;padding:18px 20px;}
+.contact__cell .plate__k{color:#818A78;}
+.contact__cell a{font-family:var(--ff-mono);font-size:13.5px;color:var(--paper-2);text-decoration:none;border-bottom:1px solid #4C5544;transition:border-color .2s,color .2s;word-break:break-word;}
+.contact__cell a:hover{color:#fff;border-color:#fff;}
+.contact__cell span.static{font-family:var(--ff-mono);font-size:13.5px;color:var(--paper-2);}
+.colophon{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:34px;padding-top:16px;border-top:1px solid #333B2F;font-family:var(--ff-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#818A78;}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .cover__body{grid-template-columns:1fr;align-items:start;}
+  .case__body{grid-template-columns:1fr;}
+  .case__left{border-right:0;border-bottom:1px solid var(--rule);}
+  .strip__in{grid-template-columns:1fr;}
+  .strip__item{border-right:0;border-bottom:1px solid var(--rule-2);padding-right:0;}
+  .strip__item:last-child{border-bottom:0;}
+  .bom__row{grid-template-columns:1fr;}
+  .bom__k{border-right:0;}
+  .rrow{grid-template-columns:110px minmax(0,1fr);}
+  .rrow__w{grid-column:2;border-left:0;text-align:left;padding-top:0;}
+}
+@media (max-width:620px){
+  body{font-size:16px;}
+  .index__mark{font-size:9.5px;}
+  .index__links a{padding:6px 9px;font-size:9.5px;}
+  .case__top{grid-template-columns:1fr;}
+  .case__role{text-align:left;padding-top:0;}
+  .layer{grid-template-columns:1fr;margin-top:8px;}
+  .layer__plate{transform:none;padding:11px 14px;}
+  .layer__plate span{transform:none;}
+  .layer__lead{display:none;}
+  .layer__ref{opacity:1;margin-top:3px;}
+  .case:hover .layer,.case:focus-within .layer{margin-top:8px;}
+  .assembly__hint{display:none;}
+  .plate__row{grid-template-columns:1fr;}
+  .plate__cell{border-right:0;border-bottom:1px solid var(--rule);}
+  .plate__row:last-child .plate__cell:last-child{border-bottom:0;}
+  .rrow{grid-template-columns:1fr;}
+  .rrow__k{border-right:0;border-bottom:1px solid var(--rule-2);}
+  .rrow__w{grid-column:1;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation:none !important;transition:none !important;}
+  .layer{margin-top:8px;}
+  .layer__lead,.layer__ref{opacity:1;}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to the work</a>
+
+<nav class="index" aria-label="Sheet index">
+  <div class="index__bar" aria-hidden="true">
+    <i style="background:var(--clay)"></i><i style="background:var(--indigo)"></i><i style="background:var(--teal)"></i><i style="background:var(--green)"></i><i style="background:var(--blue)"></i>
+  </div>
+  <div class="index__in">
+    <span class="index__mark">Adedotun Ibrahim Adekunle <span>/</span> Full-Stack</span>
+    <ul class="index__links">
+      <li><a href="#work"><em>02</em>Work</a></li>
+      <li><a href="#stack"><em>03</em>Stack</a></li>
+      <li><a href="#method"><em>04</em>Method</a></li>
+      <li><a href="#record"><em>05</em>Record</a></li>
+      <li><a href="#contact"><em>06</em>Hire me</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══════════ 01 COVER ══════════ -->
+<header class="cover wrap">
+  <div class="cover__eyebrow"><span class="mono">Sheet 01 — Cover</span></div>
+
+  <h1>I build the parts of a product <span class="thin">that</span> <span class="mark">actually have to work</span> on launch day.</h1>
+
+  <div class="cover__body">
+    <div>
+      <p class="lede">Full-stack developer in Lagos. Marketplaces, real-time apps, and 3D diagnostic tools — built end to end, from the database schema up to the refund button. Four real businesses currently run on the last thing I shipped.</p>
+      <div class="case__links" style="margin-top:22px;">
+        <a class="btn btn--fill" href="#work">See the work</a>
+        <a class="btn" href="#contact">Start a project</a>
+      </div>
+    </div>
+
+    <div class="plate">
+      <div class="plate__row">
+        <div class="plate__cell full">
+          <span class="plate__k">Drawn by</span>
+          <span class="plate__v">Adedotun Ibrahim Adekunle</span>
+        </div>
+      </div>
+      <div class="plate__row">
+        <div class="plate__cell"><span class="plate__k">Discipline</span><span class="plate__v">Full-stack web</span></div>
+        <div class="plate__cell"><span class="plate__k">Located</span><span class="plate__v">Lagos, NG · GMT+1</span></div>
+      </div>
+      <div class="plate__row">
+        <div class="plate__cell"><span class="plate__k">Shipped</span><span class="plate__v">4 systems</span></div>
+        <div class="plate__cell"><span class="plate__k">Leading</span><span class="plate__v">5 developers</span></div>
+      </div>
+      <div class="plate__row tint">
+        <div class="plate__cell full">
+          <span class="plate__k">Status</span>
+          <span class="plate__v blue"><span class="livedot" aria-hidden="true"></span>Open to client work &amp; roles</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="strip" aria-label="Currently">
+  <div class="strip__in">
+    <div class="strip__item s-clay">
+      <span class="mono">Now — building</span>
+      <p><strong>Dermalé</strong> — a multi-vendor skincare marketplace for the Nigerian market, launching 26 August 2026.</p>
+    </div>
+    <div class="strip__item s-green">
+      <span class="mono">Now — leading</span>
+      <p>A five-developer team building a food delivery platform for Osogbo, an underserved market.</p>
+    </div>
+    <div class="strip__item s-blue">
+      <span class="mono">Now — available</span>
+      <p>Contract work: e-commerce builds, booking platforms, and rescuing half-finished React projects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 02 WORK ══════════ -->
+<main id="work" class="sheet wrap">
+  <div class="sheet__head">
+    <span class="sheet__no">02</span>
+    <h2>Selected work</h2>
+    <span class="rule"></span>
+    <span class="mono">Hover a drawing to separate the layers</span>
+  </div>
+
+  <div class="cases">
+
+    <!-- ───── DERMALÉ ───── -->
+    <article class="case k-clay" tabindex="0">
+      <div class="case__flag" aria-hidden="true"></div>
+      <div class="case__top">
+        <div>
+          <div class="case__id">
+            <span class="tag key">DWG 01</span>
+            <span class="tag">Live</span>
+            <span class="tag">2026</span>
+          </div>
+          <h3>Dermalé</h3>
+          <p class="case__what">A multi-vendor skincare marketplace where customers buy products, book clinic treatments, and pay for consultations with skincare professionals — in one checkout.</p>
+        </div>
+        <div class="case__role">Lead developer<br>&amp; technical co-founder</div>
+      </div>
+
+      <div class="case__body">
+        <div class="case__left">
+          <span class="mono">Assembly — exploded view</span>
+          <div class="assembly">
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">A · Interface</span>
+                <span class="layer__tech">Next.js 16 App Router · React · TypeScript · Tailwind</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">5 role-gated<br>dashboards</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">B · Logic</span>
+                <span class="layer__tech">Server Actions · Route Handlers · BetterAuth</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Permissions<br>per account type</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">C · Data</span>
+                <span class="layer__tech">PostgreSQL / Supabase · Prisma 7 · Neon adapter</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">26 tables,<br>RLS on all</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">D · Money &amp; comms</span>
+                <span class="layer__tech">Paystack · Resend · Upstash Redis · Vercel</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Live payments<br>+ real refunds</div>
+            </div>
+          </div>
+          <p class="assembly__hint">Fig. 1 — four layers, built and owned end to end</p>
+        </div>
+
+        <div class="case__right">
+          <dl class="specs">
+            <div><dt>Tables</dt><dd>26</dd></div>
+            <div><dt>Account types</dt><dd>4</dd></div>
+            <div><dt>Platform fee</dt><dd>3%</dd></div>
+            <div><dt>Vendors live</dt><dd>4</dd></div>
+          </dl>
+
+          <ul class="built">
+            <li>Four account types — retailer, clinic, professional, admin — each with its own dashboard, onboarding path and permission set, plus a pre-approval intake before any vendor goes live.</li>
+            <li>Live Paystack payments carrying a 3% platform fee across orders, bookings and consultations, with a working refund pipeline the admin runs from the console — not a sandbox demo.</li>
+            <li>Async consultation messaging with 30-day unlock windows, anti-disintermediation detection, email fallback and an admin reports queue.</li>
+            <li>Cursor-based pagination and a GIN-indexed skin-concerns array so catalogue filtering stays fast as inventory grows.</li>
+            <li>A community reviews wall where only customers with a completed transaction can post, and admin curates what reaches the homepage.</li>
+            <li>Row-level security enforced on every one of the 26 tables.</li>
+            <li>Four real Lagos businesses onboarded and running on it before launch.</li>
+          </ul>
+
+          <div class="note">
+            <h4>Field note</h4>
+            <p>The homepage was firing eight simultaneous cart requests on load, tripping the database's connection-storm circuit breaker under free-tier auto-suspend. I consolidated hydration into one shared provider fetch. Same session, I found a silent failure in professional signup: a missing field was creating auth accounts with no matching profile — every professional who signed up existed and didn't exist at the same time. Both were invisible in the UI and fatal in production.</p>
+          </div>
+
+          <div class="case__links">
+            <a class="btn btn--fill" href="https://dermale.vercel.app" target="_blank" rel="noopener">Visit Dermalé</a>
+            <a class="btn" href="https://github.com/Wolfgang-V" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ───── PLANIT ───── -->
+    <article class="case k-indigo" tabindex="0">
+      <div class="case__flag" aria-hidden="true"></div>
+      <div class="case__top">
+        <div>
+          <div class="case__id">
+            <span class="tag key">DWG 02</span>
+            <span class="tag">Full-stack · real-time</span>
+          </div>
+          <h3>Planit</h3>
+          <p class="case__what">A productivity suite built for medical students — nine modules that talk to each other, with real-time chat so study groups work inside the same tool they plan in.</p>
+        </div>
+        <div class="case__role">Solo developer</div>
+      </div>
+
+      <div class="case__body">
+        <div class="case__left">
+          <span class="mono">Assembly — exploded view</span>
+          <div class="assembly">
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">A · Interface</span>
+                <span class="layer__tech">React + Vite · Tailwind · TipTap · FullCalendar · Recharts · dnd-kit</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">9 modules</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">B · State</span>
+                <span class="layer__tech">Redux Toolkit · RTK Query</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Cached,<br>normalised</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">C · Logic</span>
+                <span class="layer__tech">Node · Express · JWT · Nodemailer OTP</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Verified<br>signup flow</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">D · Data &amp; sockets</span>
+                <span class="layer__tech">MongoDB · Mongoose · Socket.io</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Live chat,<br>read receipts</div>
+            </div>
+          </div>
+          <p class="assembly__hint">Fig. 2 — the React counterpart to Dermalé's Next.js</p>
+        </div>
+
+        <div class="case__right">
+          <dl class="specs">
+            <div><dt>Modules</dt><dd>9</dd></div>
+            <div><dt>Real-time</dt><dd>Yes</dd></div>
+            <div><dt>Auth</dt><dd>JWT + OTP</dd></div>
+          </dl>
+
+          <ul class="built">
+            <li>Nine complete modules: notes and notebooks, task manager, journal, habit tracker, goal tracker, Pomodoro, bookmarks, universal search across everything, and chat.</li>
+            <li>Direct messages and group chats over Socket.io with read receipts, file sharing, reactions, reply threading and notifications.</li>
+            <li>Token auth with OTP email verification and password reset, wired through Redux Toolkit and RTK Query.</li>
+            <li>Rich text with TipTap, a real calendar with FullCalendar, drag-and-drop boards with dnd-kit, and an insights dashboard in Recharts.</li>
+          </ul>
+
+          <div class="note">
+            <h4>Field note</h4>
+            <p>Deploying an Express API to serverless meant every cold start opened a fresh Mongo connection until the pool ran out. I cached the connection in global state so functions reuse it, and replaced the hardcoded CORS origin with dynamic whitelisting so local and production run against the same backend. It's also why I <em>didn't</em> move Planit to Next.js — websockets don't live on serverless, and a migration for its own sake isn't an improvement.</p>
+          </div>
+
+          <div class="case__links">
+            <a class="btn btn--fill" href="https://github.com/Wolfgang-V" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ───── AUTOVERSE ───── -->
+    <article class="case k-teal" tabindex="0">
+      <div class="case__flag" aria-hidden="true"></div>
+      <div class="case__top">
+        <div>
+          <div class="case__id">
+            <span class="tag key">DWG 03</span>
+            <span class="tag">3D · diagnostics</span>
+          </div>
+          <h3>AutoVerse</h3>
+          <p class="case__what">A car diagnostic simulator you can turn around in 3D. Feed it a fault and the parts responsible light up inside the model, instead of reading a code you don't recognise off a scanner.</p>
+        </div>
+        <div class="case__role">Solo developer</div>
+      </div>
+
+      <div class="case__body">
+        <div class="case__left">
+          <span class="mono">Assembly — exploded view</span>
+          <div class="assembly">
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">A · Shell</span>
+                <span class="layer__tech">Landing page · WebP hero pipeline</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Fast first paint</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">B · Viewer</span>
+                <span class="layer__tech">Three.js · glTF models</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Custom layer,<br>no CAD kernel</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">C · Interaction</span>
+                <span class="layer__tech">Part picking · exploded-view animation</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Click any<br>component</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">D · Diagnostics</span>
+                <span class="layer__tech">Python · rule engine · state-driven highlighting</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Data drives<br>the visuals</div>
+            </div>
+          </div>
+          <p class="assembly__hint">Fig. 3 — the diagram this whole site borrows from</p>
+        </div>
+
+        <div class="case__right">
+          <ul class="built">
+            <li>A custom visualisation layer on Three.js rather than a full CAD kernel — the kernel bought precision a simulator never needed and cost load time it couldn't afford.</li>
+            <li>Part picking: click any component in the model to isolate and inspect it.</li>
+            <li>Exploded-view animation that pulls an assembly apart so you can see what sits behind what.</li>
+            <li>Highlighting driven directly by diagnostic output — the visuals are a function of the data, not hand-authored scenes, so a new fault definition renders without touching the 3D code.</li>
+          </ul>
+
+          <div class="note">
+            <h4>Why I built it</h4>
+            <p>I spent a decade doing hardware diagnostics before I wrote software for a living. What made a repair fast was never the error code — it was being able to picture where the fault sat inside the machine. AutoVerse is that habit turned into a tool.</p>
+          </div>
+
+          <div class="case__links">
+            <a class="btn btn--fill" href="https://github.com/Wolfgang-V" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ───── OSOGBO ───── -->
+    <article class="case k-green" tabindex="0">
+      <div class="case__flag" aria-hidden="true"></div>
+      <div class="case__top">
+        <div>
+          <div class="case__id">
+            <span class="tag key">DWG 04</span>
+            <span class="tag">In build</span>
+            <span class="tag">Team of 5</span>
+          </div>
+          <h3>Osogbo Food Delivery</h3>
+          <p class="case__what">A food delivery platform for Osogbo — a city the big Nigerian delivery apps haven't reached. Built mobile-first for real phones on real data plans.</p>
+        </div>
+        <div class="case__role">Team lead ·<br>schema &amp; code review</div>
+      </div>
+
+      <div class="case__body">
+        <div class="case__left">
+          <span class="mono">Assembly — exploded view</span>
+          <div class="assembly">
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">A · Client</span>
+                <span class="layer__tech">Next.js PWA · installable · 360px-first</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Shares as<br>a WhatsApp link</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">B · Data</span>
+                <span class="layer__tech">Supabase Postgres · Prisma schema</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Designed and<br>owned by me</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">C · Team process</span>
+                <span class="layer__tech">GitHub org · protected main · PR review</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">5 vertical<br>slices</div>
+            </div>
+          </div>
+          <p class="assembly__hint">Fig. 4 — my first project leading other developers</p>
+        </div>
+
+        <div class="case__right">
+          <ul class="built">
+            <li>Split the team by vertical slice — customer, vendor, payments and orders, logistics, admin — so each developer owns a feature from database to screen instead of queueing behind a frontend/backend split.</li>
+            <li>Wrote the Prisma schema first as the shared contract everyone builds against: price snapshotting on order items, Decimal on every money field, and an order status event trail for audit.</li>
+            <li>Designed for Osogbo specifically — landmark fields on addresses because street numbering is unreliable, phone-first identity, and cash on delivery as a first-class payment method.</li>
+            <li>Set the Git rules the team runs on: protected main, PR review before merge, daily branch sync, schema changes announced before the PR.</li>
+          </ul>
+
+          <div class="note">
+            <h4>Field note</h4>
+            <p>The team assumed we needed a native mobile app. We didn't. A PWA installs from a link shared in a WhatsApp group, skips the app store entirely, costs a fraction of the download on a metered data plan — and can still be wrapped for Play Store later without rewriting anything. Choosing the boring option bought us months.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<!-- ══════════ 03 STACK ══════════ -->
+<section id="stack" class="sheet wrap">
+  <div class="sheet__head">
+    <span class="sheet__no">03</span>
+    <h2>Bill of materials</h2>
+    <span class="rule"></span>
+    <span class="mono">Bold = shipped to production</span>
+  </div>
+
+  <div class="bom">
+    <div class="bom__row k-clay">
+      <div class="bom__k">Interface</div>
+      <div class="bom__v"><b>Next.js (App Router, Server Actions, Route Handlers)</b> · <b>React</b> · <b>TypeScript</b> · <b>Tailwind CSS</b> · Redux Toolkit · RTK Query · PWA</div>
+    </div>
+    <div class="bom__row k-indigo">
+      <div class="bom__k">Server</div>
+      <div class="bom__v"><b>Node.js</b> · <b>Express</b> · REST API design · role-based access control · Python</div>
+    </div>
+    <div class="bom__row k-teal">
+      <div class="bom__k">Data</div>
+      <div class="bom__v"><b>PostgreSQL</b> · <b>Prisma</b> · <b>Supabase</b> · <b>MongoDB / Mongoose</b> · row-level security · GIN indexing · cursor pagination · schema design and migrations</div>
+    </div>
+    <div class="bom__row k-green">
+      <div class="bom__k">Money &amp; identity</div>
+      <div class="bom__v"><b>Paystack</b> (charges, platform fees, refunds) · <b>BetterAuth</b> · <b>JWT</b> · OTP verification</div>
+    </div>
+    <div class="bom__row k-blue">
+      <div class="bom__k">Real-time &amp; 3D</div>
+      <div class="bom__v"><b>Socket.io</b> · <b>Three.js</b> · <b>glTF</b> · Upstash Redis</div>
+    </div>
+    <div class="bom__row k-clay">
+      <div class="bom__k">Ship &amp; run</div>
+      <div class="bom__v"><b>Vercel</b> · <b>Git / GitHub</b> (protected branches, PR review) · Resend · WSL / Linux · production debugging</div>
+    </div>
+  </div>
+  <p class="bom__note">I don't list things I've only read about. Everything in bold has been through a deploy, a bug, and a fix.</p>
+</section>
+
+<!-- ══════════ 04 METHOD ══════════ -->
+<section id="method" class="sheet wrap">
+  <div class="sheet__head">
+    <span class="sheet__no">04</span>
+    <h2>How I work with clients</h2>
+    <span class="rule"></span>
+  </div>
+
+  <div class="method">
+    <div class="method__item k-clay">
+      <span class="method__n">01</span>
+      <h3>Scope before code</h3>
+      <p>We agree exactly what's being built and what it costs before I start. No surprise invoice, no quiet scope creep, and I'll tell you honestly if I'm the wrong person for the job.</p>
+    </div>
+    <div class="method__item k-indigo">
+      <span class="method__n">02</span>
+      <h3>You watch it get built</h3>
+      <p>A live preview URL from day one and a written update every week. You never wait for a reveal, and nothing that surprises you arrives at the end.</p>
+    </div>
+    <div class="method__item k-teal">
+      <span class="method__n">03</span>
+      <h3>You own everything</h3>
+      <p>On delivery the source code, the database and every third-party account are yours outright. Nothing is locked to me — you can hire anyone to continue.</p>
+    </div>
+    <div class="method__item k-green">
+      <span class="method__n">04</span>
+      <h3>I stay after handover</h3>
+      <p>Bug fixes after delivery are included. Building it is easy compared to keeping it running, and I've done the second part on my own products.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 05 RECORD ══════════ -->
+<section id="record" class="sheet wrap">
+  <div class="sheet__head">
+    <span class="sheet__no">05</span>
+    <h2>Record</h2>
+    <span class="rule"></span>
+  </div>
+
+  <div class="record">
+    <div class="rrow k-clay">
+      <div class="rrow__k">Experience</div>
+      <div class="rrow__m">
+        <strong>IT Support Officer — University of Lagos</strong>
+        <span>Department of Political Science. Kept departmental infrastructure at 99% workstation uptime and trained non-technical staff on new systems.</span>
+      </div>
+      <div class="rrow__w">2022 – 2023</div>
+    </div>
+    <div class="rrow k-indigo">
+      <div class="rrow__k">Experience</div>
+      <div class="rrow__m">
+        <strong>IT Specialist — Waldos Computers, Lagos</strong>
+        <span>Part-time, family business. A decade of hardware and OS-level diagnostics — where the habit of isolating a fault instead of guessing came from.</span>
+      </div>
+      <div class="rrow__w">2012 – 2023</div>
+    </div>
+    <div class="rrow k-teal">
+      <div class="rrow__k">Education</div>
+      <div class="rrow__m"><strong>Higher National Diploma — Yaba College of Technology</strong></div>
+      <div class="rrow__w">2021 – 2023</div>
+    </div>
+    <div class="rrow k-green">
+      <div class="rrow__k">Education</div>
+      <div class="rrow__m"><strong>National Diploma — Yaba College of Technology</strong></div>
+      <div class="rrow__w">2018 – 2020</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 06 CONTACT ══════════ -->
+<footer id="contact" class="contact">
+  <div class="contact__bar" aria-hidden="true">
+    <i style="background:var(--clay)"></i><i style="background:var(--indigo)"></i><i style="background:var(--teal)"></i><i style="background:var(--green)"></i><i style="background:var(--blue)"></i>
+  </div>
+  <div class="wrap">
+    <span class="mono" style="color:#818A78;">Sheet 06 — Contact</span>
+    <h2 style="margin-top:18px;">Tell me what you're building.</h2>
+    <p class="lede" style="margin-top:16px;">Describe the project in a few lines and I'll come back with an honest answer on whether I'm the right fit, what it will realistically cost, and how long it will take. If it's not a fit, I'll say so.</p>
+
+    <div class="contact__grid">
+      <div class="contact__cell">
+        <span class="plate__k">Email</span>
+        <a href="mailto:adedotunibrahim37@gmail.com">adedotunibrahim37@gmail.com</a>
+      </div>
+      <div class="contact__cell">
+        <span class="plate__k">Code</span>
+        <a href="https://github.com/Wolfgang-V" target="_blank" rel="noopener">github.com/Wolfgang-V</a>
+      </div>
+      <div class="contact__cell">
+        <span class="plate__k">Based in</span>
+        <span class="static">Lagos, Nigeria — remote worldwide</span>
+      </div>
+      <div class="contact__cell">
+        <span class="plate__k">Overlap</span>
+        <span class="static">GMT+1 · full UK/EU day, US mornings</span>
+      </div>
+    </div>
+
+    <div class="colophon">
+      <span>© 2026 Adedotun Ibrahim Adekunle · WG Ventures</span>
+      <span>Drawing set — 6 sheets · Rev. B</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
