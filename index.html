@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Adedotun Ibrahim Adekunle — Full-Stack Developer, Lagos</title>
-<meta name="description" content="Full-stack developer in Lagos. I build production systems with real money moving through them — marketplaces, real-time apps, 3D diagnostics. Next.js, React, TypeScript, PostgreSQL.">
+<title>Adedotun Ibrahim Adekunle — Full-Stack Web &amp; Mobile Developer, Lagos</title>
+<meta name="description" content="Full-stack web and mobile developer in Lagos. Marketplaces, e-commerce, banking, real-time apps and 3D diagnostics — built end to end. Next.js, React, TypeScript, PostgreSQL.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400;12..96,75..100,700;12..96,75..100,800&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
@@ -19,12 +19,12 @@
   --rule:#B2B9AA;
   --rule-2:#C7CDBF;
 
-  /* colour key — one per drawing */
   --blue:#1B3CB0;      --blue-soft:#E3E7F7;
   --clay:#A0491F;      --clay-soft:#F8E9E0;
   --indigo:#4338CA;    --indigo-soft:#E9E7FB;
   --teal:#0B5F68;      --teal-soft:#DDEFF1;
   --green:#1A6B37;     --green-soft:#E1F0E7;
+  --plum:#7A2E52;      --plum-soft:#F6E5EC;
 
   --accent:var(--blue);
   --accent-soft:var(--blue-soft);
@@ -105,9 +105,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* ---------- now strip ---------- */
 .strip{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper-2);}
 .strip__in{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:repeat(3,1fr);}
-.strip__item{padding:22px 26px 22px 0;border-right:1px solid var(--rule-2);position:relative;}
+.strip__item{padding:22px 26px 22px 14px;border-right:1px solid var(--rule-2);position:relative;}
 .strip__item::before{content:"";position:absolute;left:0;top:22px;width:3px;height:18px;background:var(--accent);}
-.strip__item{padding-left:14px;}
 .strip__item:not(:first-child){padding-left:26px;}
 .strip__item:not(:first-child)::before{left:12px;}
 .strip__item:last-child{border-right:0;padding-right:0;}
@@ -142,7 +141,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
              linear-gradient(to bottom,rgba(18,22,15,.032) 1px,transparent 1px) 0 0/22px 22px;}
 .case__right{padding:clamp(22px,3vw,34px) var(--pad);}
 
-/* exploded assembly */
 .assembly{margin:14px 0 6px;}
 .layer{display:grid;grid-template-columns:minmax(0,1fr) 34px auto;align-items:center;margin-top:-11px;transition:margin-top .5s cubic-bezier(.22,1,.36,1);}
 .layer:first-child{margin-top:0;}
@@ -178,12 +176,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .btn--fill{border-color:var(--accent);background:var(--accent);color:#fff;}
 .btn--fill:hover{background:var(--ink);border-color:var(--ink);color:var(--paper);}
 
-/* colour key per drawing */
 .k-clay{--accent:var(--clay);--accent-soft:var(--clay-soft);}
 .k-indigo{--accent:var(--indigo);--accent-soft:var(--indigo-soft);}
 .k-teal{--accent:var(--teal);--accent-soft:var(--teal-soft);}
 .k-green{--accent:var(--green);--accent-soft:var(--green-soft);}
 .k-blue{--accent:var(--blue);--accent-soft:var(--blue-soft);}
+.k-plum{--accent:var(--plum);--accent-soft:var(--plum-soft);}
 
 /* ---------- bill of materials ---------- */
 .bom{border:1.5px solid var(--ink);background:var(--card);box-shadow:5px 5px 0 rgba(18,22,15,.1);}
@@ -272,10 +270,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
 <nav class="index" aria-label="Sheet index">
   <div class="index__bar" aria-hidden="true">
-    <i style="background:var(--clay)"></i><i style="background:var(--indigo)"></i><i style="background:var(--teal)"></i><i style="background:var(--green)"></i><i style="background:var(--blue)"></i>
+    <i style="background:var(--clay)"></i><i style="background:var(--teal)"></i><i style="background:var(--plum)"></i><i style="background:var(--green)"></i><i style="background:var(--indigo)"></i><i style="background:var(--blue)"></i>
   </div>
   <div class="index__in">
-    <span class="index__mark">Adedotun Ibrahim Adekunle <span>/</span> Full-Stack</span>
+    <span class="index__mark">Adedotun Ibrahim Adekunle <span>/</span> Web &amp; Mobile</span>
     <ul class="index__links">
       <li><a href="#work"><em>02</em>Work</a></li>
       <li><a href="#stack"><em>03</em>Stack</a></li>
@@ -294,7 +292,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
   <div class="cover__body">
     <div>
-      <p class="lede">Full-stack developer in Lagos. Marketplaces, real-time apps, and 3D diagnostic tools — built end to end, from the database schema up to the refund button. Four real businesses currently run on the last thing I shipped.</p>
+      <p class="lede">Full-stack web and mobile developer in Lagos. Marketplaces, e-commerce, banking, real-time apps and 3D diagnostics — built end to end, from the database schema up to the refund button. Four real businesses currently run on the last thing I shipped.</p>
       <div class="case__links" style="margin-top:22px;">
         <a class="btn btn--fill" href="#work">See the work</a>
         <a class="btn" href="#contact">Start a project</a>
@@ -309,12 +307,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         </div>
       </div>
       <div class="plate__row">
-        <div class="plate__cell"><span class="plate__k">Discipline</span><span class="plate__v">Full-stack web</span></div>
+        <div class="plate__cell"><span class="plate__k">Discipline</span><span class="plate__v">Full-stack web &amp; mobile</span></div>
         <div class="plate__cell"><span class="plate__k">Located</span><span class="plate__v">Lagos, NG · GMT+1</span></div>
       </div>
       <div class="plate__row">
-        <div class="plate__cell"><span class="plate__k">Shipped</span><span class="plate__v">4 systems</span></div>
-        <div class="plate__cell"><span class="plate__k">Leading</span><span class="plate__v">5 developers</span></div>
+        <div class="plate__cell"><span class="plate__k">Shipped</span><span class="plate__v">6 systems</span></div>
+        <div class="plate__cell"><span class="plate__k">Core stack</span><span class="plate__v">Next.js · React</span></div>
       </div>
       <div class="plate__row tint">
         <div class="plate__cell full">
@@ -333,8 +331,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       <p><strong>Dermalé</strong> — a multi-vendor skincare marketplace for the Nigerian market, launching 26 August 2026.</p>
     </div>
     <div class="strip__item s-green">
-      <span class="mono">Now — leading</span>
-      <p>A five-developer team building a food delivery platform for Osogbo, an underserved market.</p>
+      <span class="mono">Now — in build</span>
+      <p><strong>SwiftX</strong> — a food delivery platform for Osogbo, a city the big delivery apps haven't reached.</p>
     </div>
     <div class="strip__item s-blue">
       <span class="mono">Now — available</span>
@@ -354,7 +352,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
   <div class="cases">
 
-    <!-- ───── DERMALÉ ───── -->
+    <!-- ───── 01 DERMALÉ ───── -->
     <article class="case k-clay" tabindex="0">
       <div class="case__flag" aria-hidden="true"></div>
       <div class="case__top">
@@ -441,100 +439,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
     </article>
 
-    <!-- ───── PLANIT ───── -->
-    <article class="case k-indigo" tabindex="0">
-      <div class="case__flag" aria-hidden="true"></div>
-      <div class="case__top">
-        <div>
-          <div class="case__id">
-            <span class="tag key">DWG 02</span>
-            <span class="tag">Full-stack · real-time</span>
-          </div>
-          <h3>Planit</h3>
-          <p class="case__what">A productivity suite built for medical students — nine modules that talk to each other, with real-time chat so study groups work inside the same tool they plan in.</p>
-        </div>
-        <div class="case__role">Solo developer</div>
-      </div>
-
-      <div class="case__body">
-        <div class="case__left">
-          <span class="mono">Assembly — exploded view</span>
-          <div class="assembly">
-            <div class="layer">
-              <div class="layer__plate"><span>
-                <span class="layer__name">A · Interface</span>
-                <span class="layer__tech">React + Vite · Tailwind · TipTap · FullCalendar · Recharts · dnd-kit</span>
-              </span></div>
-              <div class="layer__lead"></div>
-              <div class="layer__ref">9 modules</div>
-            </div>
-            <div class="layer">
-              <div class="layer__plate"><span>
-                <span class="layer__name">B · State</span>
-                <span class="layer__tech">Redux Toolkit · RTK Query</span>
-              </span></div>
-              <div class="layer__lead"></div>
-              <div class="layer__ref">Cached,<br>normalised</div>
-            </div>
-            <div class="layer">
-              <div class="layer__plate"><span>
-                <span class="layer__name">C · Logic</span>
-                <span class="layer__tech">Node · Express · JWT · Nodemailer OTP</span>
-              </span></div>
-              <div class="layer__lead"></div>
-              <div class="layer__ref">Verified<br>signup flow</div>
-            </div>
-            <div class="layer">
-              <div class="layer__plate"><span>
-                <span class="layer__name">D · Data &amp; sockets</span>
-                <span class="layer__tech">MongoDB · Mongoose · Socket.io</span>
-              </span></div>
-              <div class="layer__lead"></div>
-              <div class="layer__ref">Live chat,<br>read receipts</div>
-            </div>
-          </div>
-          <p class="assembly__hint">Fig. 2 — the React counterpart to Dermalé's Next.js</p>
-        </div>
-
-        <div class="case__right">
-          <dl class="specs">
-            <div><dt>Modules</dt><dd>9</dd></div>
-            <div><dt>Real-time</dt><dd>Yes</dd></div>
-            <div><dt>Auth</dt><dd>JWT + OTP</dd></div>
-          </dl>
-
-          <ul class="built">
-            <li>Nine complete modules: notes and notebooks, task manager, journal, habit tracker, goal tracker, Pomodoro, bookmarks, universal search across everything, and chat.</li>
-            <li>Direct messages and group chats over Socket.io with read receipts, file sharing, reactions, reply threading and notifications.</li>
-            <li>Token auth with OTP email verification and password reset, wired through Redux Toolkit and RTK Query.</li>
-            <li>Rich text with TipTap, a real calendar with FullCalendar, drag-and-drop boards with dnd-kit, and an insights dashboard in Recharts.</li>
-          </ul>
-
-          <div class="note">
-            <h4>Field note</h4>
-            <p>Deploying an Express API to serverless meant every cold start opened a fresh Mongo connection until the pool ran out. I cached the connection in global state so functions reuse it, and replaced the hardcoded CORS origin with dynamic whitelisting so local and production run against the same backend. It's also why I <em>didn't</em> move Planit to Next.js — websockets don't live on serverless, and a migration for its own sake isn't an improvement.</p>
-          </div>
-
-          <div class="case__links">
-            <a class="btn btn--fill" href="https://github.com/Wolfgang-V" target="_blank" rel="noopener">Code</a>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- ───── AUTOVERSE ───── -->
+    <!-- ───── 02 AUTOVERSE ───── -->
     <article class="case k-teal" tabindex="0">
       <div class="case__flag" aria-hidden="true"></div>
       <div class="case__top">
         <div>
           <div class="case__id">
-            <span class="tag key">DWG 03</span>
+            <span class="tag key">DWG 02</span>
             <span class="tag">3D · diagnostics</span>
           </div>
           <h3>AutoVerse</h3>
           <p class="case__what">A car diagnostic simulator you can turn around in 3D. Feed it a fault and the parts responsible light up inside the model, instead of reading a code you don't recognise off a scanner.</p>
         </div>
-        <div class="case__role">Solo developer</div>
+        <div class="case__role">Solo build</div>
       </div>
 
       <div class="case__body">
@@ -574,7 +491,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
               <div class="layer__ref">Data drives<br>the visuals</div>
             </div>
           </div>
-          <p class="assembly__hint">Fig. 3 — the diagram this whole site borrows from</p>
+          <p class="assembly__hint">Fig. 2 — the diagram this whole site borrows from</p>
         </div>
 
         <div class="case__right">
@@ -597,7 +514,74 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
     </article>
 
-    <!-- ───── OSOGBO ───── -->
+    <!-- ───── 03 HOUSE OF GLASS ───── -->
+    <article class="case k-plum" tabindex="0">
+      <div class="case__flag" aria-hidden="true"></div>
+      <div class="case__top">
+        <div>
+          <div class="case__id">
+            <span class="tag key">DWG 03</span>
+            <span class="tag">Client project</span>
+            <span class="tag">E-commerce</span>
+          </div>
+          <h3>House of Glass</h3>
+          <p class="case__what">An online storefront for a glass business — a browsable catalogue and product pages built to load fast and be handed over to a client who doesn't run a build pipeline.</p>
+        </div>
+        <div class="case__role">Client build</div>
+      </div>
+
+      <div class="case__body">
+        <div class="case__left">
+          <span class="mono">Assembly — exploded view</span>
+          <div class="assembly">
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">A · Markup</span>
+                <span class="layer__tech">Semantic HTML5 · accessible structure</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Editable by<br>the client</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">B · Styling</span>
+                <span class="layer__tech">CSS3 · custom properties · responsive grid</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Phone to<br>desktop</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">C · Behaviour</span>
+                <span class="layer__tech">Vanilla JavaScript · no framework, no build step</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Zero<br>dependencies</div>
+            </div>
+          </div>
+          <p class="assembly__hint">Fig. 3 — the right tool being the smallest one</p>
+        </div>
+
+        <div class="case__right">
+          <ul class="built">
+            <li>A full storefront in hand-written HTML, CSS and vanilla JavaScript — no framework, no bundler, no node_modules folder to go stale.</li>
+            <li>Responsive from phone to desktop, with the catalogue and product pages laid out on a CSS grid rather than a template kit.</li>
+            <li>Deploys as plain files, so the client can host it anywhere and keep it running without paying anyone a monthly platform fee.</li>
+          </ul>
+
+          <div class="note">
+            <h4>Why static</h4>
+            <p>Not every shop needs a framework. This one had a fixed catalogue and a client with no technical team, so a React build would have added a toolchain they couldn't maintain and a dependency tree that rots the moment nobody updates it. Plain files load faster, cost nothing to host, and will still open in a browser in five years. Choosing the smaller tool is a decision, not a shortcut.</p>
+          </div>
+
+          <div class="case__links">
+            <a class="btn btn--fill" href="https://github.com/Wolfgang-V" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ───── 04 SWIFTX ───── -->
     <article class="case k-green" tabindex="0">
       <div class="case__flag" aria-hidden="true"></div>
       <div class="case__top">
@@ -605,12 +589,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
           <div class="case__id">
             <span class="tag key">DWG 04</span>
             <span class="tag">In build</span>
-            <span class="tag">Team of 5</span>
+            <span class="tag">Mobile-first</span>
           </div>
-          <h3>Osogbo Food Delivery</h3>
+          <h3>SwiftX</h3>
           <p class="case__what">A food delivery platform for Osogbo — a city the big Nigerian delivery apps haven't reached. Built mobile-first for real phones on real data plans.</p>
         </div>
-        <div class="case__role">Team lead ·<br>schema &amp; code review</div>
+        <div class="case__role">Data model<br>&amp; architecture</div>
       </div>
 
       <div class="case__body">
@@ -635,27 +619,178 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
-                <span class="layer__name">C · Team process</span>
+                <span class="layer__name">C · Process</span>
                 <span class="layer__tech">GitHub org · protected main · PR review</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">5 vertical<br>slices</div>
+              <div class="layer__ref">Collaborative<br>build</div>
             </div>
           </div>
-          <p class="assembly__hint">Fig. 4 — my first project leading other developers</p>
+          <p class="assembly__hint">Fig. 4 — designed for the market it actually serves</p>
         </div>
 
         <div class="case__right">
           <ul class="built">
-            <li>Split the team by vertical slice — customer, vendor, payments and orders, logistics, admin — so each developer owns a feature from database to screen instead of queueing behind a frontend/backend split.</li>
-            <li>Wrote the Prisma schema first as the shared contract everyone builds against: price snapshotting on order items, Decimal on every money field, and an order status event trail for audit.</li>
-            <li>Designed for Osogbo specifically — landmark fields on addresses because street numbering is unreliable, phone-first identity, and cash on delivery as a first-class payment method.</li>
-            <li>Set the Git rules the team runs on: protected main, PR review before merge, daily branch sync, schema changes announced before the PR.</li>
+            <li>Wrote the Prisma schema first as the shared contract the whole build works against: price snapshotting on order items, Decimal on every money field, and an order status event trail for audit.</li>
+            <li>Designed for Osogbo specifically — landmark fields on addresses because street numbering is unreliable, phone-first identity, and cash on delivery as a first-class payment method rather than an afterthought.</li>
+            <li>A flat zone-to-zone delivery fee table instead of distance pricing, because riders quote by area, not kilometres.</li>
+            <li>Repo runs on protected main with PR review before merge and schema changes announced before the pull request.</li>
           </ul>
 
           <div class="note">
             <h4>Field note</h4>
-            <p>The team assumed we needed a native mobile app. We didn't. A PWA installs from a link shared in a WhatsApp group, skips the app store entirely, costs a fraction of the download on a metered data plan — and can still be wrapped for Play Store later without rewriting anything. Choosing the boring option bought us months.</p>
+            <p>The assumption going in was that this needed a native mobile app. It didn't. A PWA installs from a link shared in a WhatsApp group, skips the app store entirely, costs a fraction of the download on a metered data plan — and can still be wrapped for Play Store later without rewriting anything. Choosing the boring option bought months.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ───── 05 PLANIT ───── -->
+    <article class="case k-indigo" tabindex="0">
+      <div class="case__flag" aria-hidden="true"></div>
+      <div class="case__top">
+        <div>
+          <div class="case__id">
+            <span class="tag key">DWG 05</span>
+            <span class="tag">Full-stack · real-time</span>
+          </div>
+          <h3>Planit</h3>
+          <p class="case__what">A productivity suite built for medical students — nine modules that talk to each other, with real-time chat so study groups work inside the same tool they plan in.</p>
+        </div>
+        <div class="case__role">Solo build</div>
+      </div>
+
+      <div class="case__body">
+        <div class="case__left">
+          <span class="mono">Assembly — exploded view</span>
+          <div class="assembly">
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">A · Interface</span>
+                <span class="layer__tech">React + Vite · Tailwind · TipTap · FullCalendar · Recharts · dnd-kit</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">9 modules</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">B · State</span>
+                <span class="layer__tech">Redux Toolkit · RTK Query</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Cached,<br>normalised</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">C · Logic</span>
+                <span class="layer__tech">Node · Express · JWT · Nodemailer OTP</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Verified<br>signup flow</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">D · Data &amp; sockets</span>
+                <span class="layer__tech">MongoDB · Mongoose · Socket.io</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Live chat,<br>read receipts</div>
+            </div>
+          </div>
+          <p class="assembly__hint">Fig. 5 — the React counterpart to Dermalé's Next.js</p>
+        </div>
+
+        <div class="case__right">
+          <dl class="specs">
+            <div><dt>Modules</dt><dd>9</dd></div>
+            <div><dt>Real-time</dt><dd>Yes</dd></div>
+            <div><dt>Auth</dt><dd>JWT + OTP</dd></div>
+          </dl>
+
+          <ul class="built">
+            <li>Nine complete modules: notes and notebooks, task manager, journal, habit tracker, goal tracker, Pomodoro, bookmarks, universal search across everything, and chat.</li>
+            <li>Direct messages and group chats over Socket.io with read receipts, file sharing, reactions, reply threading and notifications.</li>
+            <li>Token auth with OTP email verification and password reset, wired through Redux Toolkit and RTK Query.</li>
+            <li>Rich text with TipTap, a real calendar with FullCalendar, drag-and-drop boards with dnd-kit, and an insights dashboard in Recharts.</li>
+          </ul>
+
+          <div class="note">
+            <h4>Field note</h4>
+            <p>Deploying an Express API to serverless meant every cold start opened a fresh Mongo connection until the pool ran out. I cached the connection in global state so functions reuse it, and replaced the hardcoded CORS origin with dynamic whitelisting so local and production run against the same backend. It's also why I <em>didn't</em> move Planit to Next.js — websockets don't live on serverless, and a migration for its own sake isn't an improvement.</p>
+          </div>
+
+          <div class="case__links">
+            <a class="btn btn--fill" href="https://github.com/Wolfgang-V" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ───── 06 SFA BANK ───── -->
+    <article class="case k-blue" tabindex="0">
+      <div class="case__flag" aria-hidden="true"></div>
+      <div class="case__top">
+        <div>
+          <div class="case__id">
+            <span class="tag key">DWG 06</span>
+            <span class="tag">Live</span>
+            <span class="tag">Fintech</span>
+          </div>
+          <h3>SFA Bank</h3>
+          <p class="case__what">A working digital banking application — open an account, verify it, move money between accounts, pay bills, and pull a receipt for every transaction.</p>
+        </div>
+        <div class="case__role">Solo build</div>
+      </div>
+
+      <div class="case__body">
+        <div class="case__left">
+          <span class="mono">Assembly — exploded view</span>
+          <div class="assembly">
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">A · Interface</span>
+                <span class="layer__tech">React + Vite · custom SVG identity · transaction receipts</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Navy &amp; gold,<br>designed by me</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">B · Logic</span>
+                <span class="layer__tech">Node · Express on Vercel serverless · JWT · Nodemailer OTP</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Rate limited,<br>error handled</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">C · Data</span>
+                <span class="layer__tech">MongoDB · Mongoose · seeded biller catalogue</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Balances,<br>ledger, history</div>
+            </div>
+          </div>
+          <p class="assembly__hint">Fig. 6 — where I learned to write code that moves money</p>
+        </div>
+
+        <div class="case__right">
+          <ul class="built">
+            <li>Account opening with token auth and OTP email verification, so no account goes active on an unverified address.</li>
+            <li>Fund transfers between accounts with balance validation before the write, and bill payments against a seeded biller catalogue.</li>
+            <li>Full transaction history with downloadable receipts.</li>
+            <li>Rate limiting and centralised error handling across every route, plus account management and settings.</li>
+            <li>Deployed frontend and API separately on Vercel, with CORS configured to serve local development and production from the same backend.</li>
+          </ul>
+
+          <div class="note">
+            <h4>Field note</h4>
+            <p>Money code doesn't get to be approximately right. Every transfer validates the balance before it writes, and every route returns a predictable error shape instead of leaking a stack trace to the client. This was the project where I learned that the interesting half of a banking app is everything that happens when a request fails.</p>
+          </div>
+
+          <div class="case__links">
+            <a class="btn btn--fill" href="https://sfa-bank-fe.vercel.app" target="_blank" rel="noopener">Visit SFA Bank</a>
+            <a class="btn" href="https://github.com/Wolfgang-V" target="_blank" rel="noopener">Code</a>
           </div>
         </div>
       </div>
@@ -676,27 +811,31 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   <div class="bom">
     <div class="bom__row k-clay">
       <div class="bom__k">Interface</div>
-      <div class="bom__v"><b>Next.js (App Router, Server Actions, Route Handlers)</b> · <b>React</b> · <b>TypeScript</b> · <b>Tailwind CSS</b> · Redux Toolkit · RTK Query · PWA</div>
+      <div class="bom__v"><b>Next.js (App Router, Server Actions, Route Handlers)</b> · <b>React</b> · <b>TypeScript</b> · <b>Tailwind CSS</b> · <b>semantic HTML5 / CSS3 / vanilla JS</b> · Redux Toolkit · RTK Query</div>
+    </div>
+    <div class="bom__row k-green">
+      <div class="bom__k">Mobile</div>
+      <div class="bom__v"><b>Progressive Web Apps</b> (installable, offline shell) · mobile-first layout from 360px · Play Store wrapping path</div>
     </div>
     <div class="bom__row k-indigo">
       <div class="bom__k">Server</div>
-      <div class="bom__v"><b>Node.js</b> · <b>Express</b> · REST API design · role-based access control · Python</div>
+      <div class="bom__v"><b>Node.js</b> · <b>Express</b> · serverless functions · REST API design · role-based access control · rate limiting · Python</div>
     </div>
     <div class="bom__row k-teal">
       <div class="bom__k">Data</div>
       <div class="bom__v"><b>PostgreSQL</b> · <b>Prisma</b> · <b>Supabase</b> · <b>MongoDB / Mongoose</b> · row-level security · GIN indexing · cursor pagination · schema design and migrations</div>
     </div>
-    <div class="bom__row k-green">
-      <div class="bom__k">Money &amp; identity</div>
-      <div class="bom__v"><b>Paystack</b> (charges, platform fees, refunds) · <b>BetterAuth</b> · <b>JWT</b> · OTP verification</div>
-    </div>
     <div class="bom__row k-blue">
+      <div class="bom__k">Money &amp; identity</div>
+      <div class="bom__v"><b>Paystack</b> (charges, platform fees, refunds) · <b>BetterAuth</b> · <b>JWT</b> · OTP verification · transaction ledgers and receipts</div>
+    </div>
+    <div class="bom__row k-plum">
       <div class="bom__k">Real-time &amp; 3D</div>
       <div class="bom__v"><b>Socket.io</b> · <b>Three.js</b> · <b>glTF</b> · Upstash Redis</div>
     </div>
     <div class="bom__row k-clay">
       <div class="bom__k">Ship &amp; run</div>
-      <div class="bom__v"><b>Vercel</b> · <b>Git / GitHub</b> (protected branches, PR review) · Resend · WSL / Linux · production debugging</div>
+      <div class="bom__v"><b>Vercel</b> · <b>Git / GitHub</b> (protected branches, PR review) · Resend · Nodemailer · WSL / Linux · production debugging</div>
     </div>
   </div>
   <p class="bom__note">I don't list things I've only read about. Everything in bold has been through a deploy, a bug, and a fix.</p>
@@ -716,7 +855,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       <h3>Scope before code</h3>
       <p>We agree exactly what's being built and what it costs before I start. No surprise invoice, no quiet scope creep, and I'll tell you honestly if I'm the wrong person for the job.</p>
     </div>
-    <div class="method__item k-indigo">
+    <div class="method__item k-plum">
       <span class="method__n">02</span>
       <h3>You watch it get built</h3>
       <p>A live preview URL from day one and a written update every week. You never wait for a reveal, and nothing that surprises you arrives at the end.</p>
@@ -775,7 +914,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 <!-- ══════════ 06 CONTACT ══════════ -->
 <footer id="contact" class="contact">
   <div class="contact__bar" aria-hidden="true">
-    <i style="background:var(--clay)"></i><i style="background:var(--indigo)"></i><i style="background:var(--teal)"></i><i style="background:var(--green)"></i><i style="background:var(--blue)"></i>
+    <i style="background:var(--clay)"></i><i style="background:var(--teal)"></i><i style="background:var(--plum)"></i><i style="background:var(--green)"></i><i style="background:var(--indigo)"></i><i style="background:var(--blue)"></i>
   </div>
   <div class="wrap">
     <span class="mono" style="color:#818A78;">Sheet 06 — Contact</span>
@@ -803,7 +942,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
     <div class="colophon">
       <span>© 2026 Adedotun Ibrahim Adekunle · WG Ventures</span>
-      <span>Drawing set — 6 sheets · Rev. B</span>
+      <span>Drawing set — 6 sheets · Rev. D</span>
     </div>
   </div>
 </footer>
