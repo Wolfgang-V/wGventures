@@ -38,7 +38,7 @@
 }
 
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
 body{
   margin:0;
   background-color:var(--paper);
@@ -51,6 +51,7 @@ body{
   font-size:17px;
   line-height:1.62;
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 img{max-width:100%;display:block;}
 a{color:inherit;}
@@ -117,7 +118,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .s-blue{--accent:var(--blue);}
 
 /* ---------- section frame ---------- */
-.sheet{padding:clamp(56px,9vw,110px) 0;}
+.sheet{padding:clamp(56px,9vw,110px) 0;scroll-margin-top:64px;}
 .sheet__head{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(28px,4vw,48px);flex-wrap:wrap;}
 .sheet__no{font-family:var(--ff-mono);font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.1em;}
 .sheet__head h2{font-size:clamp(26px,4.4vw,48px);letter-spacing:-.03em;}
@@ -147,7 +148,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .layer__plate{transform:skewX(-24deg);background:var(--paper-2);border:1.2px solid var(--ink);border-left:4px solid var(--accent);padding:11px 20px;min-height:46px;display:flex;align-items:center;transition:background .3s;}
 .layer__plate span{transform:skewX(24deg);display:block;}
 .layer__name{font-family:var(--ff-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;}
-.layer__tech{font-family:var(--ff-mono);font-size:11.5px;color:var(--ink-2);line-height:1.45;margin-top:2px;}
+.layer__tech{font-family:var(--ff-mono);font-size:11.5px;color:var(--ink-2);line-height:1.45;margin-top:2px;overflow-wrap:anywhere;}
 .layer__lead{height:1px;background:var(--accent);opacity:0;transition:opacity .45s ease .1s;}
 .layer__ref{font-family:var(--ff-mono);font-size:9.5px;letter-spacing:.12em;color:var(--graphite);opacity:0;transition:opacity .45s ease .1s;white-space:nowrap;}
 .case:hover .layer,.case:focus-within .layer{margin-top:11px;}
@@ -188,7 +189,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .bom__row{display:grid;grid-template-columns:190px minmax(0,1fr);border-bottom:1px solid var(--rule);}
 .bom__row:last-child{border-bottom:0;}
 .bom__k{padding:14px 18px;border-right:1px solid var(--rule);font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);}
-.bom__v{padding:14px 18px;font-family:var(--ff-mono);font-size:13px;line-height:1.7;color:var(--ink-2);}
+.bom__v{padding:14px 18px;font-family:var(--ff-mono);font-size:13px;line-height:1.7;color:var(--ink-2);overflow-wrap:anywhere;}
 .bom__v b{color:var(--ink);font-weight:700;}
 .bom__note{margin-top:14px;font-size:15.5px;color:var(--graphite);max-width:70ch;}
 
@@ -210,7 +211,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .rrow__w{padding:14px 16px;border-left:1px solid var(--rule);font-family:var(--ff-mono);font-size:10.5px;color:var(--graphite);text-align:right;white-space:nowrap;}
 
 /* ---------- contact ---------- */
-.contact{border-top:1px solid var(--rule);background:var(--ink);color:var(--paper-2);}
+.contact{border-top:1px solid var(--rule);background:var(--ink);color:var(--paper-2);scroll-margin-top:64px;}
 .contact__bar{height:6px;display:flex;}
 .contact__bar i{flex:1;}
 .contact .wrap{padding-top:clamp(52px,8vw,94px);padding-bottom:clamp(40px,6vw,70px);}
@@ -223,6 +224,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .contact__cell a:hover{color:#fff;border-color:#fff;}
 .contact__cell span.static{font-family:var(--ff-mono);font-size:13.5px;color:var(--paper-2);}
 .colophon{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:34px;padding-top:16px;border-top:1px solid #333B2F;font-family:var(--ff-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#818A78;}
+
+/* ---------- touch devices: no hover, so show the assembly open ---------- */
+@media (hover:none){
+  .layer{margin-top:9px;}
+  .layer__plate{transform:none;padding:12px 16px;}
+  .layer__plate span{transform:none;}
+  .layer__lead{display:none;}
+  .layer__ref{opacity:1;margin-top:4px;text-align:left;white-space:normal;}
+  .layer{grid-template-columns:1fr;}
+  .hoverhint{display:none;}
+  .btn{padding:12px 16px;}
+}
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
@@ -237,30 +250,91 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   .rrow{grid-template-columns:110px minmax(0,1fr);}
   .rrow__w{grid-column:2;border-left:0;text-align:left;padding-top:0;}
 }
+
 @media (max-width:620px){
   body{font-size:16px;}
-  .index__mark{font-size:9.5px;}
-  .index__links a{padding:6px 9px;font-size:9.5px;}
-  .case__top{grid-template-columns:1fr;}
-  .case__role{text-align:left;padding-top:0;}
-  .layer{grid-template-columns:1fr;margin-top:8px;}
-  .layer__plate{transform:none;padding:11px 14px;}
-  .layer__plate span{transform:none;}
-  .layer__lead{display:none;}
-  .layer__ref{opacity:1;margin-top:3px;}
-  .case:hover .layer,.case:focus-within .layer{margin-top:8px;}
-  .assembly__hint{display:none;}
+
+  /* nav: drop the wordmark, give the links real tap targets */
+  .index__in{height:auto;padding:0;justify-content:stretch;}
+  .index__mark{display:none;}
+  .index__links{width:100%;padding:0 8px;}
+  .index__links a{padding:13px 11px;font-size:10px;border-left:0;}
+  .index__links li:last-child a{border-right:0;}
+
+  /* cover */
+  .cover{padding-top:34px;}
+  .cover h1{font-size:clamp(32px,9.2vw,46px);max-width:100%;}
+  .lede{font-size:17px;}
+  .cover__body{gap:26px;}
+  .plate{box-shadow:3px 3px 0 rgba(18,22,15,.1);}
   .plate__row{grid-template-columns:1fr;}
   .plate__cell{border-right:0;border-bottom:1px solid var(--rule);}
   .plate__row:last-child .plate__cell:last-child{border-bottom:0;}
+
+  /* section heads */
+  .sheet{padding:44px 0;}
+  .sheet__head{gap:10px;margin-bottom:22px;}
+  .sheet__head .rule{display:none;}
+  .hoverhint{display:none;}
+
+  /* cases */
+  .case{box-shadow:3px 3px 0 rgba(18,22,15,.1);}
+  .case__top{grid-template-columns:1fr;padding-top:16px;padding-bottom:16px;}
+  .case__top h3{font-size:28px;}
+  .case__what{font-size:16px;}
+  .case__role{text-align:left;padding-top:0;font-size:10px;}
+  .case__id{gap:7px;}
+  .case__id .tag{font-size:9px;padding:2px 6px;}
+
+  /* assembly stacks flat, labels always visible */
+  .layer{grid-template-columns:1fr;margin-top:9px;}
+  .layer__plate{transform:none;padding:12px 16px;}
+  .layer__plate span{transform:none;}
+  .layer__lead{display:none;}
+  .layer__ref{opacity:1;margin-top:4px;text-align:left;white-space:normal;font-size:10px;}
+  .layer__ref br{display:none;}
+  .case:hover .layer,.case:focus-within .layer{margin-top:9px;}
+  .assembly__hint{display:none;}
+
+  /* specs: two up instead of three cramped */
+  .specs div{flex:1 1 46%;}
+  .specs dd{font-size:18px;}
+
+  .built li{font-size:15.5px;}
+  .note p{font-size:15px;}
+  .btn{padding:12px 16px;font-size:10.5px;}
+  .case__links{gap:8px;}
+
+  /* bill of materials */
+  .bom{box-shadow:3px 3px 0 rgba(18,22,15,.1);}
+  .bom__k{padding:11px 16px;}
+  .bom__v{padding:12px 16px;font-size:12.5px;}
+
+  /* method + record */
+  .method__item{padding:20px 18px;}
+  .record{box-shadow:3px 3px 0 rgba(18,22,15,.1);}
   .rrow{grid-template-columns:1fr;}
-  .rrow__k{border-right:0;border-bottom:1px solid var(--rule-2);}
-  .rrow__w{grid-column:1;}
+  .rrow__k{border-right:0;border-bottom:1px solid var(--rule-2);padding:10px 16px;}
+  .rrow__m{padding:12px 16px 4px;}
+  .rrow__w{grid-column:1;border-left:0;text-align:left;padding:0 16px 12px;}
+
+  /* contact */
+  .contact h2{font-size:32px;}
+  .contact__grid{grid-template-columns:1fr;}
+  .colophon{font-size:9.5px;gap:8px;}
 }
+
+@media (max-width:380px){
+  .cover h1{font-size:30px;}
+  .case__top h3{font-size:25px;}
+  .specs div{flex:1 1 100%;}
+  .index__links a{padding:13px 9px;font-size:9.5px;}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
   *{animation:none !important;transition:none !important;}
-  .layer{margin-top:8px;}
+  .layer{margin-top:9px;}
   .layer__lead,.layer__ref{opacity:1;}
 }
 </style>
@@ -327,8 +401,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 <section class="strip" aria-label="Currently">
   <div class="strip__in">
     <div class="strip__item s-clay">
-      <span class="mono">Now — building</span>
-      <p><strong>Dermalé</strong> — a multi-vendor skincare marketplace for the Nigerian market, launching 26 August 2026.</p>
+      <span class="mono">Now — running</span>
+      <p><strong>Dermalé</strong> — a multi-vendor skincare marketplace, live with four vendor businesses onboarded.</p>
     </div>
     <div class="strip__item s-green">
       <span class="mono">Now — in build</span>
@@ -347,7 +421,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     <span class="sheet__no">02</span>
     <h2>Selected work</h2>
     <span class="rule"></span>
-    <span class="mono">Hover a drawing to separate the layers</span>
+    <span class="mono hoverhint">Hover a drawing to separate the layers</span>
   </div>
 
   <div class="cases">
@@ -432,7 +506,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
           </div>
 
           <div class="case__links">
-            <a class="btn btn--fill" href="https://dermale.vercel.app" target="_blank" rel="noopener">Visit Dermalé</a>
+            <a class="btn btn--fill" href="https://www.askdermale.com" target="_blank" rel="noopener">Visit Dermalé</a>
             <a class="btn" href="https://github.com/Wolfgang-V" target="_blank" rel="noopener">Code</a>
           </div>
         </div>
@@ -575,7 +649,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
           </div>
 
           <div class="case__links">
-            <a class="btn btn--fill" href="https://github.com/Wolfgang-V" target="_blank" rel="noopener">Code</a>
+            <a class="btn btn--fill" href="https://generishog.com" target="_blank" rel="noopener">Visit House of Glass</a>
+            <a class="btn" href="https://github.com/Wolfgang-V" target="_blank" rel="noopener">Code</a>
           </div>
         </div>
       </div>
@@ -942,7 +1017,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
     <div class="colophon">
       <span>© 2026 Adedotun Ibrahim Adekunle · WG Ventures</span>
-      <span>Drawing set — 6 sheets · Rev. D</span>
+      <span>Drawing set — 6 sheets · Rev. E</span>
     </div>
   </div>
 </footer>
