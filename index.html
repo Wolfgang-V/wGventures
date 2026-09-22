@@ -25,6 +25,7 @@
   --teal:#0B5F68;      --teal-soft:#DDEFF1;
   --green:#1A6B37;     --green-soft:#E1F0E7;
   --plum:#7A2E52;      --plum-soft:#F6E5EC;
+  --ochre:#8A5A00;     --ochre-soft:#F7EEDA;
 
   --accent:var(--blue);
   --accent-soft:var(--blue-soft);
@@ -34,6 +35,7 @@
   --ff-mono:"JetBrains Mono",ui-monospace,monospace;
 
   --pad:clamp(20px,5vw,72px);
+  --inner:var(--pad);
   --maxw:1240px;
 }
 
@@ -81,7 +83,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .index__links a em{font-style:normal;color:var(--blue);margin-right:6px;}
 
 /* ---------- cover ---------- */
-.cover{padding:clamp(48px,9vw,108px) 0 clamp(34px,6vw,60px);}
+.cover{padding-top:clamp(48px,9vw,108px);padding-bottom:clamp(34px,6vw,60px);}
 .cover__eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:clamp(22px,4vw,38px);}
 .cover__eyebrow::after{content:"";flex:1;height:1px;background:var(--rule);}
 .cover h1{font-size:clamp(38px,8.4vw,104px);line-height:.94;letter-spacing:-.035em;max-width:16ch;}
@@ -118,7 +120,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .s-blue{--accent:var(--blue);}
 
 /* ---------- section frame ---------- */
-.sheet{padding:clamp(56px,9vw,110px) 0;scroll-margin-top:64px;}
+.sheet{padding-top:clamp(56px,9vw,110px);padding-bottom:clamp(56px,9vw,110px);scroll-margin-top:64px;}
 .sheet__head{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(28px,4vw,48px);flex-wrap:wrap;}
 .sheet__no{font-family:var(--ff-mono);font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.1em;}
 .sheet__head h2{font-size:clamp(26px,4.4vw,48px);letter-spacing:-.03em;}
@@ -128,7 +130,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .cases{display:flex;flex-direction:column;gap:clamp(26px,4vw,44px);}
 .case{border:1.5px solid var(--ink);background:var(--card);box-shadow:5px 5px 0 rgba(18,22,15,.1);overflow:hidden;}
 .case__flag{height:6px;background:var(--accent);}
-.case__top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:start;padding:20px var(--pad) 18px;border-bottom:1px solid var(--rule);background:var(--accent-soft);}
+.case__top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:start;padding:20px var(--inner) 18px;border-bottom:1px solid var(--rule);background:var(--accent-soft);}
 .case__id{display:flex;align-items:center;gap:10px;margin-bottom:9px;flex-wrap:wrap;}
 .case__id .tag{font-family:var(--ff-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--rule);padding:2px 7px;color:var(--graphite);background:var(--card);}
 .case__id .tag.key{border-color:var(--accent);color:var(--accent);font-weight:700;}
@@ -137,10 +139,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .case__what{margin:8px 0 0;font-size:17px;color:var(--ink-2);max-width:56ch;}
 
 .case__body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);}
-.case__left{padding:clamp(22px,3vw,34px) var(--pad);border-right:1px solid var(--rule);
+.case__left{padding:clamp(22px,3vw,34px) var(--inner);border-right:1px solid var(--rule);
   background:linear-gradient(to right,rgba(18,22,15,.032) 1px,transparent 1px) 0 0/22px 22px,
              linear-gradient(to bottom,rgba(18,22,15,.032) 1px,transparent 1px) 0 0/22px 22px;}
-.case__right{padding:clamp(22px,3vw,34px) var(--pad);}
+.case__right{padding:clamp(22px,3vw,34px) var(--inner);}
 
 .assembly{margin:14px 0 6px;}
 .layer{display:grid;grid-template-columns:minmax(0,1fr) 34px auto;align-items:center;margin-top:-11px;transition:margin-top .5s cubic-bezier(.22,1,.36,1);}
@@ -183,6 +185,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .k-green{--accent:var(--green);--accent-soft:var(--green-soft);}
 .k-blue{--accent:var(--blue);--accent-soft:var(--blue-soft);}
 .k-plum{--accent:var(--plum);--accent-soft:var(--plum-soft);}
+.k-ochre{--accent:var(--ochre);--accent-soft:var(--ochre-soft);}
 
 /* ---------- bill of materials ---------- */
 .bom{border:1.5px solid var(--ink);background:var(--card);box-shadow:5px 5px 0 rgba(18,22,15,.1);}
@@ -243,7 +246,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   .case__body{grid-template-columns:1fr;}
   .case__left{border-right:0;border-bottom:1px solid var(--rule);}
   .strip__in{grid-template-columns:1fr;}
-  .strip__item{border-right:0;border-bottom:1px solid var(--rule-2);padding-right:0;}
+  .strip__item,.strip__item:not(:first-child){border-right:0;border-bottom:1px solid var(--rule-2);padding:18px 0 18px 14px;}
+  .strip__item::before,.strip__item:not(:first-child)::before{left:0;top:18px;}
   .strip__item:last-child{border-bottom:0;}
   .bom__row{grid-template-columns:1fr;}
   .bom__k{border-right:0;}
@@ -252,12 +256,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 }
 
 @media (max-width:620px){
+  :root{--pad:14px;--inner:16px;}
   body{font-size:16px;}
 
   /* nav: drop the wordmark, give the links real tap targets */
   .index__in{height:auto;padding:0;justify-content:stretch;}
   .index__mark{display:none;}
-  .index__links{width:100%;padding:0 8px;}
+  .index__links{width:100%;padding:0 calc(var(--pad) - 11px);}
   .index__links a{padding:13px 11px;font-size:10px;border-left:0;}
   .index__links li:last-child a{border-right:0;}
 
@@ -268,11 +273,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   .cover__body{gap:26px;}
   .plate{box-shadow:3px 3px 0 rgba(18,22,15,.1);}
   .plate__row{grid-template-columns:1fr;}
-  .plate__cell{border-right:0;border-bottom:1px solid var(--rule);}
+  .plate__cell{border-right:0;border-bottom:1px solid var(--rule);padding:10px var(--inner);}
   .plate__row:last-child .plate__cell:last-child{border-bottom:0;}
 
   /* section heads */
-  .sheet{padding:44px 0;}
+  .sheet{padding-top:44px;padding-bottom:44px;}
   .sheet__head{gap:10px;margin-bottom:22px;}
   .sheet__head .rule{display:none;}
   .hoverhint{display:none;}
@@ -280,6 +285,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   /* cases */
   .case{box-shadow:3px 3px 0 rgba(18,22,15,.1);}
   .case__top{grid-template-columns:1fr;padding-top:16px;padding-bottom:16px;}
+  .case__left,.case__right{padding-top:20px;padding-bottom:20px;}
   .case__top h3{font-size:28px;}
   .case__what{font-size:16px;}
   .case__role{text-align:left;padding-top:0;font-size:10px;}
@@ -307,27 +313,28 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
   /* bill of materials */
   .bom{box-shadow:3px 3px 0 rgba(18,22,15,.1);}
-  .bom__k{padding:11px 16px;}
-  .bom__v{padding:12px 16px;font-size:12.5px;}
+  .bom__k{padding:11px var(--inner);}
+  .bom__v{padding:12px var(--inner);font-size:12.5px;}
 
   /* method + record */
-  .method__item{padding:20px 18px;}
+  .method__item{padding:20px var(--inner);}
   .record{box-shadow:3px 3px 0 rgba(18,22,15,.1);}
   .rrow{grid-template-columns:1fr;}
-  .rrow__k{border-right:0;border-bottom:1px solid var(--rule-2);padding:10px 16px;}
-  .rrow__m{padding:12px 16px 4px;}
-  .rrow__w{grid-column:1;border-left:0;text-align:left;padding:0 16px 12px;}
+  .rrow__k{border-right:0;border-bottom:1px solid var(--rule-2);padding:10px var(--inner);}
+  .rrow__m{padding:12px var(--inner) 4px;}
+  .rrow__w{grid-column:1;border-left:0;text-align:left;padding:0 var(--inner) 12px;}
 
   /* contact */
   .contact h2{font-size:32px;}
   .contact__grid{grid-template-columns:1fr;}
+  .contact__cell{padding:16px var(--inner);}
   .colophon{font-size:9.5px;gap:8px;}
 }
 
 @media (max-width:380px){
+  :root{--pad:12px;--inner:14px;}
   .cover h1{font-size:30px;}
   .case__top h3{font-size:25px;}
-  .specs div{flex:1 1 100%;}
   .index__links a{padding:13px 9px;font-size:9.5px;}
 }
 
@@ -344,7 +351,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
 <nav class="index" aria-label="Sheet index">
   <div class="index__bar" aria-hidden="true">
-    <i style="background:var(--clay)"></i><i style="background:var(--teal)"></i><i style="background:var(--plum)"></i><i style="background:var(--green)"></i><i style="background:var(--indigo)"></i><i style="background:var(--blue)"></i>
+    <i style="background:var(--clay)"></i><i style="background:var(--teal)"></i><i style="background:var(--plum)"></i><i style="background:var(--ochre)"></i><i style="background:var(--green)"></i><i style="background:var(--indigo)"></i><i style="background:var(--blue)"></i>
   </div>
   <div class="index__in">
     <span class="index__mark">Adedotun Ibrahim Adekunle <span>/</span> Web &amp; Mobile</span>
@@ -385,7 +392,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <div class="plate__cell"><span class="plate__k">Located</span><span class="plate__v">Lagos, NG · GMT+1</span></div>
       </div>
       <div class="plate__row">
-        <div class="plate__cell"><span class="plate__k">Shipped</span><span class="plate__v">6 systems</span></div>
+        <div class="plate__cell"><span class="plate__k">Shipped</span><span class="plate__v">7 systems</span></div>
         <div class="plate__cell"><span class="plate__k">Core stack</span><span class="plate__v">Next.js · React</span></div>
       </div>
       <div class="plate__row tint">
@@ -452,7 +459,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">Next.js 16 App Router · React · TypeScript · Tailwind</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">5 role-gated<br>dashboards</div>
+              <div class="layer__ref">5 role-gated <br>dashboards</div>
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
@@ -460,7 +467,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">Server Actions · Route Handlers · BetterAuth</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Permissions<br>per account type</div>
+              <div class="layer__ref">Permissions <br>per account type</div>
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
@@ -468,7 +475,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">PostgreSQL / Supabase · Prisma 7 · Neon adapter</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">26 tables,<br>RLS on all</div>
+              <div class="layer__ref">26 tables, <br>RLS on all</div>
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
@@ -476,7 +483,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">Paystack · Resend · Upstash Redis · Vercel</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Live payments<br>+ real refunds</div>
+              <div class="layer__ref">Live payments <br>+ real refunds</div>
             </div>
           </div>
           <p class="assembly__hint">Fig. 1 — four layers, built and owned end to end</p>
@@ -546,7 +553,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">Three.js · glTF models</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Custom layer,<br>no CAD kernel</div>
+              <div class="layer__ref">Custom layer, <br>no CAD kernel</div>
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
@@ -554,7 +561,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">Part picking · exploded-view animation</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Click any<br>component</div>
+              <div class="layer__ref">Click any <br>component</div>
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
@@ -562,7 +569,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">Python · rule engine · state-driven highlighting</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Data drives<br>the visuals</div>
+              <div class="layer__ref">Data drives <br>the visuals</div>
             </div>
           </div>
           <p class="assembly__hint">Fig. 2 — the diagram this whole site borrows from</p>
@@ -615,7 +622,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">Semantic HTML5 · accessible structure</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Editable by<br>the client</div>
+              <div class="layer__ref">Editable by <br>the client</div>
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
@@ -623,7 +630,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">CSS3 · custom properties · responsive grid</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Phone to<br>desktop</div>
+              <div class="layer__ref">Phone to <br>desktop</div>
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
@@ -631,7 +638,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">Vanilla JavaScript · no framework, no build step</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Zero<br>dependencies</div>
+              <div class="layer__ref">Zero <br>dependencies</div>
             </div>
           </div>
           <p class="assembly__hint">Fig. 3 — the right tool being the smallest one</p>
@@ -657,13 +664,97 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
     </article>
 
-    <!-- ───── 04 SWIFTX ───── -->
-    <article class="case k-green" tabindex="0">
+    <!-- ───── 04 TRACKA ───── -->
+    <article class="case k-ochre" tabindex="0">
       <div class="case__flag" aria-hidden="true"></div>
       <div class="case__top">
         <div>
           <div class="case__id">
             <span class="tag key">DWG 04</span>
+            <span class="tag">Live</span>
+            <span class="tag">PWA</span>
+          </div>
+          <h3>Tracka</h3>
+          <p class="case__what">A skincare routine tracker that works out tonight's routine for you — which actives are due, which to rest after last night, and which don't mix — then reminds you by push notification at the right time.</p>
+        </div>
+        <div class="case__role">Took over &amp;<br>rebuilt</div>
+      </div>
+
+      <div class="case__body">
+        <div class="case__left">
+          <span class="mono">Assembly — exploded view</span>
+          <div class="assembly">
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">A · Interface</span>
+                <span class="layer__tech">React + Vite · Tailwind · installable PWA · time-aware themes</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Redesigned <br>end to end</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">B · Engine</span>
+                <span class="layer__tech">Pure planNight function · actives detection · conflict rules</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">No DB, no clock, <br>fully testable</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">C · Data</span>
+                <span class="layer__tech">Supabase Postgres · RLS · Open Beauty Facts search</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">~100 Nigerian <br>brands seeded</div>
+            </div>
+            <div class="layer">
+              <div class="layer__plate"><span>
+                <span class="layer__name">D · Reminders</span>
+                <span class="layer__tech">Web Push · Supabase Edge Function · pg_cron every 5 min</span>
+              </span></div>
+              <div class="layer__lead"></div>
+              <div class="layer__ref">Server says what <br>the screen says</div>
+            </div>
+          </div>
+          <p class="assembly__hint">Fig. 4 — an inherited prototype, rebuilt from the data up</p>
+        </div>
+
+        <div class="case__right">
+          <dl class="specs">
+            <div><dt>Frequencies</dt><dd>5</dd></div>
+            <div><dt>Brands seeded</dt><dd>~100</dd></div>
+            <div><dt>Push check</dt><dd>5 min</dd></div>
+          </dl>
+
+          <ul class="built">
+            <li>Took ownership of a prototype someone else had generated, audited its database, and fixed what I found: missing row-level security policies, duplicate completion records, users with no profile row, orphaned routines, and date logic running on UTC instead of local time.</li>
+            <li>Wrote a pure night-routine engine: hand it today's date, the user's steps and their history, and it returns tonight's plan — resting retinol after an acid night, holding back actives that aren't due, separating ingredients that conflict — with a plain-English reason for every change.</li>
+            <li>Built the full push notification chain: browser subscriptions, a Supabase Edge Function that runs the same engine server-side, and pg_cron firing every five minutes so the 9pm reminder matches the screen exactly.</li>
+            <li>Ingredient awareness that detects actives from product names and ingredient lists, kept deliberately narrow so trace ingredients don't trigger false conflicts; product search backed by a shared catalogue with Open Beauty Facts as fallback.</li>
+            <li>Normalised three incompatible frequency formats left behind by earlier attempts into one constrained column, then redesigned the whole interface around the new engine.</li>
+          </ul>
+
+          <div class="note">
+            <h4>Field note</h4>
+            <p>The engine has no database calls, no React, and never reads the clock — the date is passed in. That one constraint is what let me simulate ten nights of routines in under a second on the command line before touching a single screen, and what lets the exact same function run on the server for notifications. The hard part of a scheduling feature isn't the schedule; it's making the rules testable in isolation.</p>
+          </div>
+
+          <div class="case__links">
+            <a class="btn btn--fill" href="https://tracka-phi.vercel.app" target="_blank" rel="noopener">Visit Tracka</a>
+            <a class="btn" href="https://github.com/Wolfgang-V/Tracka" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ───── 05 SWIFTX ───── -->
+    <article class="case k-green" tabindex="0">
+      <div class="case__flag" aria-hidden="true"></div>
+      <div class="case__top">
+        <div>
+          <div class="case__id">
+            <span class="tag key">DWG 05</span>
             <span class="tag">In build</span>
             <span class="tag">Mobile-first</span>
           </div>
@@ -683,7 +774,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">Next.js PWA · installable · 360px-first</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Shares as<br>a WhatsApp link</div>
+              <div class="layer__ref">Shares as <br>a WhatsApp link</div>
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
@@ -691,7 +782,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">Supabase Postgres · Prisma schema</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Designed and<br>owned by me</div>
+              <div class="layer__ref">Designed and <br>owned by me</div>
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
@@ -699,10 +790,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">GitHub org · protected main · PR review</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Collaborative<br>build</div>
+              <div class="layer__ref">Collaborative <br>build</div>
             </div>
           </div>
-          <p class="assembly__hint">Fig. 4 — designed for the market it actually serves</p>
+          <p class="assembly__hint">Fig. 5 — designed for the market it actually serves</p>
         </div>
 
         <div class="case__right">
@@ -721,13 +812,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
     </article>
 
-    <!-- ───── 05 PLANIT ───── -->
+    <!-- ───── 06 PLANIT ───── -->
     <article class="case k-indigo" tabindex="0">
       <div class="case__flag" aria-hidden="true"></div>
       <div class="case__top">
         <div>
           <div class="case__id">
-            <span class="tag key">DWG 05</span>
+            <span class="tag key">DWG 06</span>
             <span class="tag">Full-stack · real-time</span>
           </div>
           <h3>Planit</h3>
@@ -754,7 +845,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">Redux Toolkit · RTK Query</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Cached,<br>normalised</div>
+              <div class="layer__ref">Cached, <br>normalised</div>
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
@@ -762,7 +853,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">Node · Express · JWT · Nodemailer OTP</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Verified<br>signup flow</div>
+              <div class="layer__ref">Verified <br>signup flow</div>
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
@@ -770,10 +861,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">MongoDB · Mongoose · Socket.io</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Live chat,<br>read receipts</div>
+              <div class="layer__ref">Live chat, <br>read receipts</div>
             </div>
           </div>
-          <p class="assembly__hint">Fig. 5 — the React counterpart to Dermalé's Next.js</p>
+          <p class="assembly__hint">Fig. 6 — the React counterpart to Dermalé's Next.js</p>
         </div>
 
         <div class="case__right">
@@ -802,13 +893,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
     </article>
 
-    <!-- ───── 06 SFA BANK ───── -->
+    <!-- ───── 07 SFA BANK ───── -->
     <article class="case k-blue" tabindex="0">
       <div class="case__flag" aria-hidden="true"></div>
       <div class="case__top">
         <div>
           <div class="case__id">
-            <span class="tag key">DWG 06</span>
+            <span class="tag key">DWG 07</span>
             <span class="tag">Live</span>
             <span class="tag">Fintech</span>
           </div>
@@ -828,7 +919,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">React + Vite · custom SVG identity · transaction receipts</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Navy &amp; gold,<br>designed by me</div>
+              <div class="layer__ref">Navy &amp; gold, <br>designed by me</div>
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
@@ -836,7 +927,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">Node · Express on Vercel serverless · JWT · Nodemailer OTP</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Rate limited,<br>error handled</div>
+              <div class="layer__ref">Rate limited, <br>error handled</div>
             </div>
             <div class="layer">
               <div class="layer__plate"><span>
@@ -844,10 +935,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
                 <span class="layer__tech">MongoDB · Mongoose · seeded biller catalogue</span>
               </span></div>
               <div class="layer__lead"></div>
-              <div class="layer__ref">Balances,<br>ledger, history</div>
+              <div class="layer__ref">Balances, <br>ledger, history</div>
             </div>
           </div>
-          <p class="assembly__hint">Fig. 6 — where I learned to write code that moves money</p>
+          <p class="assembly__hint">Fig. 7 — where I learned to write code that moves money</p>
         </div>
 
         <div class="case__right">
@@ -891,11 +982,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     </div>
     <div class="bom__row k-green">
       <div class="bom__k">Mobile</div>
-      <div class="bom__v"><b>Progressive Web Apps</b> (installable, offline shell) · mobile-first layout from 360px · Play Store wrapping path</div>
+      <div class="bom__v"><b>Progressive Web Apps</b> (installable, offline shell, <b>Web Push notifications</b>) · mobile-first layout from 360px · Play Store wrapping path</div>
     </div>
     <div class="bom__row k-indigo">
       <div class="bom__k">Server</div>
-      <div class="bom__v"><b>Node.js</b> · <b>Express</b> · serverless functions · REST API design · role-based access control · rate limiting · Python</div>
+      <div class="bom__v"><b>Node.js</b> · <b>Express</b> · serverless functions · <b>Supabase Edge Functions</b> · pg_cron · REST API design · role-based access control · rate limiting · Python</div>
     </div>
     <div class="bom__row k-teal">
       <div class="bom__k">Data</div>
@@ -990,7 +1081,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 <!-- ══════════ 06 CONTACT ══════════ -->
 <footer id="contact" class="contact">
   <div class="contact__bar" aria-hidden="true">
-    <i style="background:var(--clay)"></i><i style="background:var(--teal)"></i><i style="background:var(--plum)"></i><i style="background:var(--green)"></i><i style="background:var(--indigo)"></i><i style="background:var(--blue)"></i>
+    <i style="background:var(--clay)"></i><i style="background:var(--teal)"></i><i style="background:var(--plum)"></i><i style="background:var(--ochre)"></i><i style="background:var(--green)"></i><i style="background:var(--indigo)"></i><i style="background:var(--blue)"></i>
   </div>
   <div class="wrap">
     <span class="mono" style="color:#818A78;">Sheet 06 — Contact</span>
@@ -1018,7 +1109,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
     <div class="colophon">
       <span>© 2026 Adedotun Ibrahim Adekunle · WG Ventures</span>
-      <span>Drawing set — 6 sheets · Rev. F</span>
+      <span>Drawing set — 6 sheets · Rev. G</span>
     </div>
   </div>
 </footer>
