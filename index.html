@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Adedotun Ibrahim Adekunle — Full-Stack Web &amp; Mobile Developer, Lagos</title>
 <meta name="description" content="Full-stack web and mobile developer in Lagos. Marketplaces, e-commerce, banking, real-time apps and 3D diagnostics — built end to end. Next.js, React, TypeScript, PostgreSQL.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23DCE0D8'/%3E%3Crect x='2.5' y='2.5' width='59' height='59' fill='none' stroke='%2312160F' stroke-width='3'/%3E%3Cpolygon points='15,11 53,11 47,21 9,21' fill='%23A0491F'/%3E%3Cpolygon points='15,27 53,27 47,37 9,37' fill='%231B3CB0'/%3E%3Cpolygon points='15,43 53,43 47,53 9,53' fill='%238A5A00'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400;12..96,75..100,700;12..96,75..100,800&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
@@ -82,6 +83,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .index__links a:hover{color:var(--ink);background:var(--paper-2);}
 .index__links a em{font-style:normal;color:var(--blue);margin-right:6px;}
 
+
+/* ---------- brand mark ---------- */
+.logo{width:26px;height:26px;flex:0 0 auto;color:var(--ink);}
+.index__brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:inherit;}
+.footmark{display:flex;align-items:center;gap:12px;margin-top:30px;}
+.footmark .logo{width:40px;height:40px;color:var(--paper-2);}
+.footmark span{font-family:var(--ff-mono);font-size:11px;line-height:1.6;letter-spacing:.1em;text-transform:uppercase;color:#818A78;}
+.footmark strong{color:var(--paper-2);font-weight:700;}
+.footmark + .colophon{margin-top:20px;}
+
 /* ---------- cover ---------- */
 .cover{padding-top:clamp(48px,9vw,108px);padding-bottom:clamp(34px,6vw,60px);}
 .cover__eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:clamp(22px,4vw,38px);}
@@ -118,6 +129,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .s-clay{--accent:var(--clay);}
 .s-green{--accent:var(--green);}
 .s-blue{--accent:var(--blue);}
+.s-ochre{--accent:var(--ochre);}
 
 /* ---------- section frame ---------- */
 .sheet{padding-top:clamp(56px,9vw,110px);padding-bottom:clamp(56px,9vw,110px);scroll-margin-top:64px;}
@@ -262,6 +274,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   /* nav: drop the wordmark, give the links real tap targets */
   .index__in{height:auto;padding:0;justify-content:stretch;}
   .index__mark{display:none;}
+  .index__in{align-items:center;gap:0;}
+  .index__brand{padding:0 0 0 var(--pad);}
+  .logo{width:22px;height:22px;}
+  .index__links{width:auto;flex:1;padding:0 calc(var(--pad) - 11px) 0 6px;}
   .index__links{width:100%;padding:0 calc(var(--pad) - 11px);}
   .index__links a{padding:13px 11px;font-size:10px;border-left:0;}
   .index__links li:last-child a{border-right:0;}
@@ -348,13 +364,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 </head>
 <body>
 <a class="skip" href="#work">Skip to the work</a>
+<span id="top"></span>
 
 <nav class="index" aria-label="Sheet index">
   <div class="index__bar" aria-hidden="true">
-    <i style="background:var(--clay)"></i><i style="background:var(--teal)"></i><i style="background:var(--plum)"></i><i style="background:var(--ochre)"></i><i style="background:var(--green)"></i><i style="background:var(--indigo)"></i><i style="background:var(--blue)"></i>
+    <i style="background:var(--clay)"></i><i style="background:var(--teal)"></i><i style="background:var(--plum)"></i><i style="background:var(--ochre)"></i><i style="background:var(--indigo)"></i><i style="background:var(--blue)"></i>
   </div>
   <div class="index__in">
-    <span class="index__mark">Adedotun Ibrahim Adekunle <span>/</span> Web &amp; Mobile</span>
+    <a class="index__brand" href="#top" aria-label="wG Ventures — back to top"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="2.5" y="2.5" width="59" height="59" fill="none" stroke="currentColor" stroke-width="3"/><polygon points="15,11 53,11 47,21 9,21" fill="var(--clay)"/><polygon points="15,27 53,27 47,37 9,37" fill="var(--blue)"/><polygon points="15,43 53,43 47,53 9,53" fill="var(--ochre)"/></svg><span class="index__mark">wG <span>Ventures</span></span></a>
     <ul class="index__links">
       <li><a href="#work"><em>02</em>Work</a></li>
       <li><a href="#stack"><em>03</em>Stack</a></li>
@@ -392,7 +409,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <div class="plate__cell"><span class="plate__k">Located</span><span class="plate__v">Lagos, NG · GMT+1</span></div>
       </div>
       <div class="plate__row">
-        <div class="plate__cell"><span class="plate__k">Shipped</span><span class="plate__v">7 systems</span></div>
+        <div class="plate__cell"><span class="plate__k">Shipped</span><span class="plate__v">6 systems</span></div>
         <div class="plate__cell"><span class="plate__k">Core stack</span><span class="plate__v">Next.js · React</span></div>
       </div>
       <div class="plate__row tint">
@@ -411,9 +428,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       <span class="mono">Now — running</span>
       <p><strong>Dermalé</strong> — a multi-vendor skincare marketplace, live with four vendor businesses onboarded.</p>
     </div>
-    <div class="strip__item s-green">
-      <span class="mono">Now — in build</span>
-      <p><strong>SwiftX</strong> — a food delivery platform for Osogbo, a city the big delivery apps haven't reached.</p>
+    <div class="strip__item s-ochre">
+      <span class="mono">Now — shipping</span>
+      <p><strong>Tracka+</strong> — a skincare routine tracker with a scheduling engine and push reminders, live at trackaplus.app.</p>
     </div>
     <div class="strip__item s-blue">
       <span class="mono">Now — available</span>
@@ -674,7 +691,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
             <span class="tag">Live</span>
             <span class="tag">PWA</span>
           </div>
-          <h3>Tracka</h3>
+          <h3>Tracka+</h3>
           <p class="case__what">A skincare routine tracker that works out tonight's routine for you — which actives are due, which to rest after last night, and which don't mix — then reminds you by push notification at the right time.</p>
         </div>
         <div class="case__role">Took over &amp;<br>rebuilt</div>
@@ -741,84 +758,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
           </div>
 
           <div class="case__links">
-            <a class="btn btn--fill" href="https://tracka-phi.vercel.app" target="_blank" rel="noopener">Visit Tracka</a>
+            <a class="btn btn--fill" href="https://trackaplus.app" target="_blank" rel="noopener">Visit Tracka+</a>
             <a class="btn" href="https://github.com/Wolfgang-V/Tracka" target="_blank" rel="noopener">Code</a>
           </div>
         </div>
       </div>
     </article>
 
-    <!-- ───── 05 SWIFTX ───── -->
-    <article class="case k-green" tabindex="0">
-      <div class="case__flag" aria-hidden="true"></div>
-      <div class="case__top">
-        <div>
-          <div class="case__id">
-            <span class="tag key">DWG 05</span>
-            <span class="tag">In build</span>
-            <span class="tag">Mobile-first</span>
-          </div>
-          <h3>SwiftX</h3>
-          <p class="case__what">A food delivery platform for Osogbo — a city the big Nigerian delivery apps haven't reached. Built mobile-first for real phones on real data plans.</p>
-        </div>
-        <div class="case__role">Data model<br>&amp; architecture</div>
-      </div>
-
-      <div class="case__body">
-        <div class="case__left">
-          <span class="mono">Assembly — exploded view</span>
-          <div class="assembly">
-            <div class="layer">
-              <div class="layer__plate"><span>
-                <span class="layer__name">A · Client</span>
-                <span class="layer__tech">Next.js PWA · installable · 360px-first</span>
-              </span></div>
-              <div class="layer__lead"></div>
-              <div class="layer__ref">Shares as <br>a WhatsApp link</div>
-            </div>
-            <div class="layer">
-              <div class="layer__plate"><span>
-                <span class="layer__name">B · Data</span>
-                <span class="layer__tech">Supabase Postgres · Prisma schema</span>
-              </span></div>
-              <div class="layer__lead"></div>
-              <div class="layer__ref">Designed and <br>owned by me</div>
-            </div>
-            <div class="layer">
-              <div class="layer__plate"><span>
-                <span class="layer__name">C · Process</span>
-                <span class="layer__tech">GitHub org · protected main · PR review</span>
-              </span></div>
-              <div class="layer__lead"></div>
-              <div class="layer__ref">Collaborative <br>build</div>
-            </div>
-          </div>
-          <p class="assembly__hint">Fig. 5 — designed for the market it actually serves</p>
-        </div>
-
-        <div class="case__right">
-          <ul class="built">
-            <li>Wrote the Prisma schema first as the shared contract the whole build works against: price snapshotting on order items, Decimal on every money field, and an order status event trail for audit.</li>
-            <li>Designed for Osogbo specifically — landmark fields on addresses because street numbering is unreliable, phone-first identity, and cash on delivery as a first-class payment method rather than an afterthought.</li>
-            <li>A flat zone-to-zone delivery fee table instead of distance pricing, because riders quote by area, not kilometres.</li>
-            <li>Repo runs on protected main with PR review before merge and schema changes announced before the pull request.</li>
-          </ul>
-
-          <div class="note">
-            <h4>Field note</h4>
-            <p>The assumption going in was that this needed a native mobile app. It didn't. A PWA installs from a link shared in a WhatsApp group, skips the app store entirely, costs a fraction of the download on a metered data plan — and can still be wrapped for Play Store later without rewriting anything. Choosing the boring option bought months.</p>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- ───── 06 PLANIT ───── -->
+    <!-- ───── 05 PLANIT ───── -->
     <article class="case k-indigo" tabindex="0">
       <div class="case__flag" aria-hidden="true"></div>
       <div class="case__top">
         <div>
           <div class="case__id">
-            <span class="tag key">DWG 06</span>
+            <span class="tag key">DWG 05</span>
             <span class="tag">Full-stack · real-time</span>
           </div>
           <h3>Planit</h3>
@@ -864,7 +817,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
               <div class="layer__ref">Live chat, <br>read receipts</div>
             </div>
           </div>
-          <p class="assembly__hint">Fig. 6 — the React counterpart to Dermalé's Next.js</p>
+          <p class="assembly__hint">Fig. 5 — the React counterpart to Dermalé's Next.js</p>
         </div>
 
         <div class="case__right">
@@ -893,13 +846,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
     </article>
 
-    <!-- ───── 07 SFA BANK ───── -->
+    <!-- ───── 06 SFA BANK ───── -->
     <article class="case k-blue" tabindex="0">
       <div class="case__flag" aria-hidden="true"></div>
       <div class="case__top">
         <div>
           <div class="case__id">
-            <span class="tag key">DWG 07</span>
+            <span class="tag key">DWG 06</span>
             <span class="tag">Live</span>
             <span class="tag">Fintech</span>
           </div>
@@ -938,7 +891,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
               <div class="layer__ref">Balances, <br>ledger, history</div>
             </div>
           </div>
-          <p class="assembly__hint">Fig. 7 — where I learned to write code that moves money</p>
+          <p class="assembly__hint">Fig. 6 — where I learned to write code that moves money</p>
         </div>
 
         <div class="case__right">
@@ -982,7 +935,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     </div>
     <div class="bom__row k-green">
       <div class="bom__k">Mobile</div>
-      <div class="bom__v"><b>Progressive Web Apps</b> (installable, offline shell, <b>Web Push notifications</b>) · mobile-first layout from 360px · Play Store wrapping path</div>
+      <div class="bom__v"><b>Progressive Web Apps</b> (installable, offline shell, <b>Web Push notifications</b>) · mobile-first layout from 360px · React Native (in progress) · Play Store wrapping path</div>
     </div>
     <div class="bom__row k-indigo">
       <div class="bom__k">Server</div>
@@ -1081,7 +1034,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 <!-- ══════════ 06 CONTACT ══════════ -->
 <footer id="contact" class="contact">
   <div class="contact__bar" aria-hidden="true">
-    <i style="background:var(--clay)"></i><i style="background:var(--teal)"></i><i style="background:var(--plum)"></i><i style="background:var(--ochre)"></i><i style="background:var(--green)"></i><i style="background:var(--indigo)"></i><i style="background:var(--blue)"></i>
+    <i style="background:var(--clay)"></i><i style="background:var(--teal)"></i><i style="background:var(--plum)"></i><i style="background:var(--ochre)"></i><i style="background:var(--indigo)"></i><i style="background:var(--blue)"></i>
   </div>
   <div class="wrap">
     <span class="mono" style="color:#818A78;">Sheet 06 — Contact</span>
@@ -1107,6 +1060,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
     </div>
 
+    <div class="footmark"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="2.5" y="2.5" width="59" height="59" fill="none" stroke="currentColor" stroke-width="3"/><polygon points="15,11 53,11 47,21 9,21" fill="var(--clay)"/><polygon points="15,27 53,27 47,37 9,37" fill="var(--blue)"/><polygon points="15,43 53,43 47,53 9,53" fill="var(--ochre)"/></svg><span><strong>wG Ventures</strong><br>Adedotun Ibrahim Adekunle</span></div>
     <div class="colophon">
       <span>© 2026 Adedotun Ibrahim Adekunle · WG Ventures</span>
       <span>Drawing set — 6 sheets · Rev. G</span>
